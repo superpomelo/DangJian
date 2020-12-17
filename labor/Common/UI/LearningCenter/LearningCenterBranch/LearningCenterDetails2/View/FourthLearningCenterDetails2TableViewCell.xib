@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="113" id="KGk-i7-Jjw" customClass="FourthLearningCenterDetails2TableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="113"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="319" height="113"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hfn-Kd-BPa">
+                        <rect key="frame" x="0.0" y="0.0" width="319" height="113"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXE-2D-NNu">
+                                <rect key="frame" x="15" y="15" width="289" height="83"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Q：在课程学习过程中遇到困难怎么办？ A：多种方式可以解决学习中遇到的困难： 1、课程专属班级学习群，购课同学可以在群内向老师">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" metaFont="menu" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="HXE-2D-NNu" firstAttribute="top" secondItem="hfn-Kd-BPa" secondAttribute="top" constant="15" id="OiZ-Xs-DHL"/>
+                            <constraint firstAttribute="bottom" secondItem="HXE-2D-NNu" secondAttribute="bottom" constant="15" id="fDL-au-zq1"/>
+                            <constraint firstItem="HXE-2D-NNu" firstAttribute="leading" secondItem="hfn-Kd-BPa" secondAttribute="leading" constant="15" id="fk9-UU-9m3"/>
+                            <constraint firstAttribute="trailing" secondItem="HXE-2D-NNu" secondAttribute="trailing" constant="15" id="iSv-Ev-Y5S"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="hfn-Kd-BPa" secondAttribute="trailing" id="4QO-r1-Dnh"/>
+                    <constraint firstAttribute="bottom" secondItem="hfn-Kd-BPa" secondAttribute="bottom" id="FTe-gf-NHb"/>
+                    <constraint firstItem="hfn-Kd-BPa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="GwU-0W-TXG"/>
+                    <constraint firstItem="hfn-Kd-BPa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LdD-Jo-543"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="bodyLabel" destination="HXE-2D-NNu" id="Rhu-qI-1Y2"/>
+            </connections>
+            <point key="canvasLocation" x="136.95652173913044" y="131.58482142857142"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="196" id="KGk-i7-Jjw" customClass="ThirdMyTaskAssessmentTeacher3TableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="196"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="330" height="196"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTi-Mh-z19">
+                        <rect key="frame" x="0.0" y="0.0" width="330" height="196"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="efg-jK-k09">
+                                <rect key="frame" x="15" y="7.5" width="300" height="181"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0h-cc-Hmx">
+                                <rect key="frame" x="0.0" y="0.0" width="330" height="196"/>
+                                <connections>
+                                    <action selector="buttonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Jcr-Bg-yNP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="w0h-cc-Hmx" firstAttribute="leading" secondItem="MTi-Mh-z19" secondAttribute="leading" id="5Ut-Vt-nCe"/>
+                            <constraint firstItem="w0h-cc-Hmx" firstAttribute="top" secondItem="MTi-Mh-z19" secondAttribute="top" id="8k2-tx-2HX"/>
+                            <constraint firstAttribute="bottom" secondItem="efg-jK-k09" secondAttribute="bottom" constant="7.5" id="C6w-XU-sgp"/>
+                            <constraint firstItem="efg-jK-k09" firstAttribute="leading" secondItem="MTi-Mh-z19" secondAttribute="leading" constant="15" id="EJ4-F3-4HY"/>
+                            <constraint firstAttribute="bottom" secondItem="w0h-cc-Hmx" secondAttribute="bottom" id="EeL-7t-Y0s"/>
+                            <constraint firstItem="efg-jK-k09" firstAttribute="top" secondItem="MTi-Mh-z19" secondAttribute="top" constant="7.5" id="VQa-jJ-bgz"/>
+                            <constraint firstAttribute="trailing" secondItem="efg-jK-k09" secondAttribute="trailing" constant="15" id="iJ7-hK-vo7"/>
+                            <constraint firstAttribute="trailing" secondItem="w0h-cc-Hmx" secondAttribute="trailing" id="unK-Ms-e1g"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="MTi-Mh-z19" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="2yZ-Qw-e0T"/>
+                    <constraint firstItem="MTi-Mh-z19" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="G5q-2m-w6t"/>
+                    <constraint firstAttribute="bottom" secondItem="MTi-Mh-z19" secondAttribute="bottom" id="RCv-B9-G5P"/>
+                    <constraint firstAttribute="trailing" secondItem="MTi-Mh-z19" secondAttribute="trailing" id="T5Y-Su-FyZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="bottomView" destination="MTi-Mh-z19" id="hEC-HY-bYz"/>
+                <outlet property="myImageView" destination="efg-jK-k09" id="rUk-GE-hL2"/>
+            </connections>
+            <point key="canvasLocation" x="144.92753623188406" y="98.4375"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

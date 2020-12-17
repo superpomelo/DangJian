@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="141" id="KGk-i7-Jjw" customClass="FirstNewCirclesTextAndVideoTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="366" height="141"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="366" height="141"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jC9-Cw-Fra">
+                        <rect key="frame" x="0.0" y="0.0" width="366" height="141"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z2S-0G-Hpg">
+                                <rect key="frame" x="15" y="0.0" width="336" height="126"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="来吧尽情发挥吧。。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEI-VX-a63">
+                                <rect key="frame" x="20" y="15" width="110.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="0.39607843139999999" green="0.41568627450000001" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xEI-VX-a63" firstAttribute="top" secondItem="jC9-Cw-Fra" secondAttribute="top" constant="15" id="FuJ-64-8t2"/>
+                            <constraint firstAttribute="trailing" secondItem="Z2S-0G-Hpg" secondAttribute="trailing" constant="15" id="eH1-yk-O16"/>
+                            <constraint firstAttribute="bottom" secondItem="Z2S-0G-Hpg" secondAttribute="bottom" constant="15" id="o8q-Nf-qYe"/>
+                            <constraint firstItem="Z2S-0G-Hpg" firstAttribute="top" secondItem="jC9-Cw-Fra" secondAttribute="top" id="qhb-Y3-x2d"/>
+                            <constraint firstItem="xEI-VX-a63" firstAttribute="leading" secondItem="jC9-Cw-Fra" secondAttribute="leading" constant="20" id="tcF-tm-QFA"/>
+                            <constraint firstItem="Z2S-0G-Hpg" firstAttribute="leading" secondItem="jC9-Cw-Fra" secondAttribute="leading" constant="15" id="vc9-2u-qSO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="jC9-Cw-Fra" secondAttribute="trailing" id="8xj-tk-8VW"/>
+                    <constraint firstItem="jC9-Cw-Fra" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Fh0-aC-Vqu"/>
+                    <constraint firstAttribute="bottom" secondItem="jC9-Cw-Fra" secondAttribute="bottom" id="PIi-Bb-bvk"/>
+                    <constraint firstItem="jC9-Cw-Fra" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dtN-4j-Vwf"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="myTextView" destination="Z2S-0G-Hpg" id="8Fq-GL-czz"/>
+                <outlet property="pleaseholdLabel" destination="xEI-VX-a63" id="i6h-8z-pOr"/>
+            </connections>
+            <point key="canvasLocation" x="171.01449275362319" y="108.81696428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

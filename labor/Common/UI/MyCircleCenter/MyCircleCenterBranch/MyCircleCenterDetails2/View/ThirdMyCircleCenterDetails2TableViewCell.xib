@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="148" id="KGk-i7-Jjw" customClass="ThirdMyCircleCenterDetails2TableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="314" height="148"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="314" height="148"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HSt-8L-ov4">
+                        <rect key="frame" x="0.0" y="0.0" width="314" height="148"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEZ-cT-ue2">
+                                <rect key="frame" x="15" y="15" width="284" height="118"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="位于西藏昌都边坝县的拉孑乡中心小学，是一座现代化的民族特色学校。近年来。以拉孑乡中心小学为代表的一批西藏乡村小学，在更新校舍硬件的同时，不断尝试开展多样且兼具民族特色的课程，让学生们在掌握基础知识的同时拓展多种兴趣，实现德智体美劳全面发展。">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20392156859999999" green="0.20392156859999999" blue="0.20392156859999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="14" name=".PingFangSC-Regular"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gEZ-cT-ue2" firstAttribute="leading" secondItem="HSt-8L-ov4" secondAttribute="leading" constant="15" id="2qb-5U-ubX"/>
+                            <constraint firstAttribute="bottom" secondItem="gEZ-cT-ue2" secondAttribute="bottom" constant="15" id="aIf-3N-Zpw"/>
+                            <constraint firstItem="gEZ-cT-ue2" firstAttribute="top" secondItem="HSt-8L-ov4" secondAttribute="top" constant="15" id="ai8-hu-FbP"/>
+                            <constraint firstAttribute="trailing" secondItem="gEZ-cT-ue2" secondAttribute="trailing" constant="15" id="yOM-fU-wyL"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="HSt-8L-ov4" secondAttribute="trailing" id="0xL-5B-U70"/>
+                    <constraint firstItem="HSt-8L-ov4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="IBD-ff-6T8"/>
+                    <constraint firstItem="HSt-8L-ov4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="TmY-gH-STu"/>
+                    <constraint firstAttribute="bottom" secondItem="HSt-8L-ov4" secondAttribute="bottom" id="gm7-MU-BCE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <point key="canvasLocation" x="133.33333333333334" y="149.33035714285714"/>
+        </tableViewCell>
+    </objects>
+</document>

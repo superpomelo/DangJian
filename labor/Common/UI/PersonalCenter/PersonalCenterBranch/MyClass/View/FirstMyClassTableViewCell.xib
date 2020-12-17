@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="161" id="KGk-i7-Jjw" customClass="FirstMyClassTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="336" height="161"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="336" height="161"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oiq-5a-Yak">
+                        <rect key="frame" x="0.0" y="0.0" width="336" height="161"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLE-vg-ywp">
+                                <rect key="frame" x="0.0" y="0.0" width="336" height="161"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="FdD-4G-sOy">
+                                <rect key="frame" x="0.0" y="39" width="336" height="95"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="NgX-90-p5y"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4hd-K2-0eM">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gLE-vg-ywp" secondAttribute="trailing" id="ASn-fW-l5L"/>
+                            <constraint firstAttribute="bottom" secondItem="FdD-4G-sOy" secondAttribute="bottom" constant="27" id="Exh-Tg-t93"/>
+                            <constraint firstItem="gLE-vg-ywp" firstAttribute="top" secondItem="oiq-5a-Yak" secondAttribute="top" id="PSV-N0-qiC"/>
+                            <constraint firstAttribute="bottom" secondItem="gLE-vg-ywp" secondAttribute="bottom" id="XOC-f1-5Tb"/>
+                            <constraint firstAttribute="trailing" secondItem="FdD-4G-sOy" secondAttribute="trailing" id="hfD-6U-d2M"/>
+                            <constraint firstItem="gLE-vg-ywp" firstAttribute="leading" secondItem="oiq-5a-Yak" secondAttribute="leading" id="wmt-U1-Dor"/>
+                            <constraint firstItem="FdD-4G-sOy" firstAttribute="leading" secondItem="oiq-5a-Yak" secondAttribute="leading" id="zx1-Z3-aGh"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="oiq-5a-Yak" secondAttribute="trailing" id="5Wu-oQ-eEc"/>
+                    <constraint firstItem="oiq-5a-Yak" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Jfr-FP-hdh"/>
+                    <constraint firstItem="oiq-5a-Yak" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="doE-Jk-8ZC"/>
+                    <constraint firstAttribute="bottom" secondItem="oiq-5a-Yak" secondAttribute="bottom" id="pWd-FL-OKc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="bottomView" destination="oiq-5a-Yak" id="TCB-1Y-Vn6"/>
+                <outlet property="jianbianBottomView" destination="gLE-vg-ywp" id="vCE-RP-I9E"/>
+                <outlet property="myCollectionView" destination="FdD-4G-sOy" id="rFc-48-dHe"/>
+            </connections>
+            <point key="canvasLocation" x="147.82608695652175" y="116.85267857142857"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

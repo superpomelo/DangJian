@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="243" id="KGk-i7-Jjw" customClass="SecondTheIntegralsignInTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="333" height="243"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="333" height="243"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已连续签到3天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ama-6U-8Aw">
+                        <rect key="frame" x="15" y="20" width="94.5" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="g2p-Uk-7Cl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I17-sy-pOr">
+                        <rect key="frame" x="15" y="46" width="303" height="182"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_sign" translatesAutoresizingMaskIntoConstraints="NO" id="bR3-fr-9uL">
+                                <rect key="frame" x="0.0" y="0.0" width="303" height="182"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gwh-pT-DxS">
+                                <rect key="frame" x="15" y="80" width="18" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="hjx-uP-VOP"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="0">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="29" name="PingFangSC-Semibold"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总积分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uQ-0n-nrl">
+                                <rect key="frame" x="15" y="57" width="43" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="adf-TB-5FK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HUo-pS-Rub">
+                                <rect key="frame" x="213" y="73.5" width="75" height="35"/>
+                                <color key="backgroundColor" red="1" green="0.87450980392156863" blue="0.29803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="GcT-sK-wrY"/>
+                                    <constraint firstAttribute="width" constant="75" id="mcP-P9-3Uh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="签到">
+                                    <color key="titleColor" red="0.16862745098039217" green="0.062745098039215685" blue="0.019607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yGD-xO-Mpx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="bR3-fr-9uL" secondAttribute="bottom" id="JGf-vI-U8C"/>
+                            <constraint firstItem="HUo-pS-Rub" firstAttribute="centerY" secondItem="I17-sy-pOr" secondAttribute="centerY" id="V1V-fN-H6k"/>
+                            <constraint firstAttribute="trailing" secondItem="HUo-pS-Rub" secondAttribute="trailing" constant="15" id="b2o-mY-Mdb"/>
+                            <constraint firstItem="Gwh-pT-DxS" firstAttribute="leading" secondItem="I17-sy-pOr" secondAttribute="leading" constant="15" id="eaq-kv-hTa"/>
+                            <constraint firstItem="bR3-fr-9uL" firstAttribute="leading" secondItem="I17-sy-pOr" secondAttribute="leading" id="enF-G9-qeJ"/>
+                            <constraint firstItem="Gwh-pT-DxS" firstAttribute="centerY" secondItem="I17-sy-pOr" secondAttribute="centerY" id="fEb-vs-qSC"/>
+                            <constraint firstItem="bR3-fr-9uL" firstAttribute="top" secondItem="I17-sy-pOr" secondAttribute="top" id="hYc-Bj-bYP"/>
+                            <constraint firstItem="4uQ-0n-nrl" firstAttribute="leading" secondItem="Gwh-pT-DxS" secondAttribute="leading" id="njF-sK-iaI"/>
+                            <constraint firstItem="Gwh-pT-DxS" firstAttribute="top" secondItem="4uQ-0n-nrl" secondAttribute="bottom" constant="10" id="q6J-7K-snB"/>
+                            <constraint firstAttribute="trailing" secondItem="bR3-fr-9uL" secondAttribute="trailing" id="rr9-wY-PLf"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ama-6U-8Aw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="1ej-8i-WTL"/>
+                    <constraint firstItem="ama-6U-8Aw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="2l6-4d-AYG"/>
+                    <constraint firstAttribute="trailing" secondItem="I17-sy-pOr" secondAttribute="trailing" constant="15" id="LIN-p8-UJx"/>
+                    <constraint firstItem="I17-sy-pOr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Z2f-OI-orF"/>
+                    <constraint firstItem="I17-sy-pOr" firstAttribute="top" secondItem="ama-6U-8Aw" secondAttribute="bottom" constant="13" id="kf2-Mf-DGF"/>
+                    <constraint firstAttribute="bottom" secondItem="I17-sy-pOr" secondAttribute="bottom" constant="15" id="wdb-dh-wHX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="daysLabel" destination="ama-6U-8Aw" id="xLo-9u-MJD"/>
+                <outlet property="qianDaoButton" destination="HUo-pS-Rub" id="1Gd-OV-5eR"/>
+                <outlet property="qiandaobeijingView" destination="bR3-fr-9uL" id="sn1-G8-d8T"/>
+                <outlet property="totalLabel" destination="Gwh-pT-DxS" id="Dhf-tv-Iii"/>
+            </connections>
+            <point key="canvasLocation" x="147.10144927536234" y="174.44196428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bg_sign" width="345" height="123"/>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

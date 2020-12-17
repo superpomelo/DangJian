@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FirstMyClassCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="105" height="101"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="105" height="101"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1t3-fn-Zio">
+                        <rect key="frame" x="0.0" y="0.0" width="105" height="101"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8W-aQ-9cS">
+                                <rect key="frame" x="15" y="38.5" width="75" height="24"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="*">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="17" name="PingFangSC-Semibold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.58039215686274503" green="0.1764705882352941" blue="0.1764705882352941" alpha="0.30335636770488394" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="p8W-aQ-9cS" secondAttribute="trailing" constant="15" id="Gdm-xS-biV"/>
+                            <constraint firstItem="p8W-aQ-9cS" firstAttribute="centerY" secondItem="1t3-fn-Zio" secondAttribute="centerY" id="IU6-HM-YG5"/>
+                            <constraint firstItem="p8W-aQ-9cS" firstAttribute="leading" secondItem="1t3-fn-Zio" secondAttribute="leading" constant="15" id="aAw-yq-z0b"/>
+                            <constraint firstItem="p8W-aQ-9cS" firstAttribute="centerX" secondItem="1t3-fn-Zio" secondAttribute="centerX" id="pEp-VD-i3l"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="1t3-fn-Zio" secondAttribute="bottom" id="IPM-2G-7gE"/>
+                <constraint firstItem="1t3-fn-Zio" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="bAy-hF-gl0"/>
+                <constraint firstAttribute="trailing" secondItem="1t3-fn-Zio" secondAttribute="trailing" id="fva-F7-peK"/>
+                <constraint firstItem="1t3-fn-Zio" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ypt-js-9wt"/>
+            </constraints>
+            <size key="customSize" width="105" height="101"/>
+            <connections>
+                <outlet property="bottomView" destination="1t3-fn-Zio" id="qLO-0P-Rn4"/>
+                <outlet property="classNameLabel" destination="p8W-aQ-9cS" id="tr0-Hz-wes"/>
+            </connections>
+            <point key="canvasLocation" x="129.71014492753625" y="76.674107142857139"/>
+        </collectionViewCell>
+    </objects>
+</document>

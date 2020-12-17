@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="72" id="KGk-i7-Jjw" customClass="ThirdTheProblemOfFeedbackTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="322" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="322" height="72"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kzO-uc-jjl">
+                        <rect key="frame" x="30" y="11" width="262" height="50"/>
+                        <color key="backgroundColor" red="0.31372549020000001" green="0.87058823529999996" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="WOA-I6-GPP"/>
+                        </constraints>
+                        <state key="normal" title="提交">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="submitButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Zzn-yF-e3x"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="kzO-uc-jjl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="5tJ-88-Ttc"/>
+                    <constraint firstItem="kzO-uc-jjl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lZo-lr-qpq"/>
+                    <constraint firstAttribute="trailing" secondItem="kzO-uc-jjl" secondAttribute="trailing" constant="30" id="uC0-yW-823"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="submitButton" destination="kzO-uc-jjl" id="Ael-ae-gwZ"/>
+            </connections>
+            <point key="canvasLocation" x="28.985507246376812" y="64.955357142857139"/>
+        </tableViewCell>
+    </objects>
+</document>

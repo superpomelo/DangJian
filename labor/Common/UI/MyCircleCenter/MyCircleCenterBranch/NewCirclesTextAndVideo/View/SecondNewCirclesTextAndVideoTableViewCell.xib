@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="160" id="KGk-i7-Jjw" customClass="SecondNewCirclesTextAndVideoTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="383" height="160"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="383" height="160"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T7m-Pi-bYk">
+                        <rect key="frame" x="15" y="15" width="100" height="100"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Yb-29-tpK">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUX-bp-y8d">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_ldq_play" translatesAutoresizingMaskIntoConstraints="NO" id="ivF-Uh-Xmi">
+                                        <rect key="frame" x="34.5" y="34.5" width="31" height="31"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVI-3e-XpE">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <connections>
+                                            <action selector="playButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="UoR-rj-amW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.2969552654109589" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="DVI-3e-XpE" secondAttribute="bottom" id="1rS-Co-EW9"/>
+                                    <constraint firstAttribute="trailing" secondItem="DVI-3e-XpE" secondAttribute="trailing" id="MdF-Sz-15h"/>
+                                    <constraint firstItem="ivF-Uh-Xmi" firstAttribute="centerY" secondItem="HUX-bp-y8d" secondAttribute="centerY" id="Tll-dX-7uy"/>
+                                    <constraint firstItem="DVI-3e-XpE" firstAttribute="top" secondItem="HUX-bp-y8d" secondAttribute="top" id="Xg6-zp-yx9"/>
+                                    <constraint firstItem="DVI-3e-XpE" firstAttribute="leading" secondItem="HUX-bp-y8d" secondAttribute="leading" id="hxQ-Sa-vK1"/>
+                                    <constraint firstItem="ivF-Uh-Xmi" firstAttribute="centerX" secondItem="HUX-bp-y8d" secondAttribute="centerX" id="nJY-EC-lSv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HUX-bp-y8d" firstAttribute="leading" secondItem="T7m-Pi-bYk" secondAttribute="leading" id="CXS-6R-tOE"/>
+                            <constraint firstAttribute="height" constant="100" id="FPh-Ga-Wia"/>
+                            <constraint firstItem="3Yb-29-tpK" firstAttribute="top" secondItem="T7m-Pi-bYk" secondAttribute="top" id="FtR-HM-j2T"/>
+                            <constraint firstItem="HUX-bp-y8d" firstAttribute="top" secondItem="T7m-Pi-bYk" secondAttribute="top" id="HKg-6H-6cf"/>
+                            <constraint firstAttribute="bottom" secondItem="HUX-bp-y8d" secondAttribute="bottom" id="KmQ-v9-Zau"/>
+                            <constraint firstItem="3Yb-29-tpK" firstAttribute="leading" secondItem="T7m-Pi-bYk" secondAttribute="leading" id="LFn-gj-Egy"/>
+                            <constraint firstAttribute="trailing" secondItem="HUX-bp-y8d" secondAttribute="trailing" id="Um6-wZ-4EY"/>
+                            <constraint firstAttribute="trailing" secondItem="3Yb-29-tpK" secondAttribute="trailing" id="bij-7w-cI4"/>
+                            <constraint firstAttribute="bottom" secondItem="3Yb-29-tpK" secondAttribute="bottom" id="cGg-90-VAN"/>
+                            <constraint firstAttribute="width" constant="100" id="sFF-hh-OJx"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="T7m-Pi-bYk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="3hF-MC-PJR"/>
+                    <constraint firstItem="T7m-Pi-bYk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="wM3-E0-vsC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="picImageView" destination="3Yb-29-tpK" id="JW1-Nu-cHB"/>
+                <outlet property="playBottomView" destination="HUX-bp-y8d" id="PEn-3L-cJ5"/>
+            </connections>
+            <point key="canvasLocation" x="183.33333333333334" y="79.6875"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_ldq_play" width="31" height="31"/>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

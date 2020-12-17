@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="230" id="KGk-i7-Jjw" customClass="FirstVRSeeCampusTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="325" height="230"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="325" height="230"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ul-Eo-fV5">
+                        <rect key="frame" x="15" y="7.5" width="295" height="215"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCK-09-46K">
+                                <rect key="frame" x="15" y="165" width="192" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="oHg-Mj-rZx"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="江西外语外贸职业技术学院">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="PingFangSC-Semibold"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cen-tg-IZw">
+                                <rect key="frame" x="0.0" y="0.0" width="295" height="165"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WechatIMG10" translatesAutoresizingMaskIntoConstraints="NO" id="AuB-N2-Bfc">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="165"/>
+                                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="AuB-N2-Bfc" secondAttribute="bottom" id="4DO-Rd-tw9"/>
+                                    <constraint firstItem="AuB-N2-Bfc" firstAttribute="leading" secondItem="Cen-tg-IZw" secondAttribute="leading" id="KYZ-5e-pPV"/>
+                                    <constraint firstItem="AuB-N2-Bfc" firstAttribute="top" secondItem="Cen-tg-IZw" secondAttribute="top" id="ZpF-qw-aPj"/>
+                                    <constraint firstAttribute="trailing" secondItem="AuB-N2-Bfc" secondAttribute="trailing" id="cru-7C-VzS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Cen-tg-IZw" secondAttribute="trailing" id="1uO-Ow-MuU"/>
+                            <constraint firstItem="Cen-tg-IZw" firstAttribute="leading" secondItem="2Ul-Eo-fV5" secondAttribute="leading" id="A6x-qS-afX"/>
+                            <constraint firstItem="ZCK-09-46K" firstAttribute="leading" secondItem="2Ul-Eo-fV5" secondAttribute="leading" constant="15" id="MyH-0R-wMX"/>
+                            <constraint firstItem="ZCK-09-46K" firstAttribute="top" secondItem="Cen-tg-IZw" secondAttribute="bottom" id="jlE-tf-I4T"/>
+                            <constraint firstItem="Cen-tg-IZw" firstAttribute="top" secondItem="2Ul-Eo-fV5" secondAttribute="top" id="p6a-r6-tTm"/>
+                            <constraint firstAttribute="bottom" secondItem="ZCK-09-46K" secondAttribute="bottom" id="w3l-Pc-xCH"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="2Ul-Eo-fV5" secondAttribute="bottom" constant="7.5" id="8QV-Pp-yTM"/>
+                    <constraint firstItem="2Ul-Eo-fV5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7.5" id="aYx-Jy-Dfo"/>
+                    <constraint firstItem="2Ul-Eo-fV5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="lhj-A0-8Xi"/>
+                    <constraint firstAttribute="trailing" secondItem="2Ul-Eo-fV5" secondAttribute="trailing" constant="15" id="rBu-NV-vRL"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+            <connections>
+                <outlet property="bottomView" destination="2Ul-Eo-fV5" id="Ucv-KA-CPA"/>
+            </connections>
+            <point key="canvasLocation" x="141.30434782608697" y="176.78571428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="WechatIMG10" width="1838" height="958"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

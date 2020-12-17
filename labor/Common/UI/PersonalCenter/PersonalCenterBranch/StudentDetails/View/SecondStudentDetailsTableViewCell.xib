@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="SecondStudentDetailsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="323" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="323" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSj-Jb-o8x">
+                        <rect key="frame" x="15" y="15" width="293" height="50"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhs-Vt-TuY">
+                                <rect key="frame" x="0.0" y="0.0" width="146.5" height="50"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_task" translatesAutoresizingMaskIntoConstraints="NO" id="3m6-ah-7UG">
+                                        <rect key="frame" x="25" y="10" width="30" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="bam-z1-lVI"/>
+                                            <constraint firstAttribute="height" constant="30" id="raX-jf-zK9"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务考核" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xmw-qL-kFf">
+                                        <rect key="frame" x="60" y="16.5" width="57.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZS-Uf-g8X">
+                                        <rect key="frame" x="0.0" y="0.0" width="146.5" height="50"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="xmw-qL-kFf" firstAttribute="centerY" secondItem="3m6-ah-7UG" secondAttribute="centerY" id="1fx-bo-3dL"/>
+                                    <constraint firstItem="3m6-ah-7UG" firstAttribute="centerY" secondItem="uhs-Vt-TuY" secondAttribute="centerY" id="3Mz-H9-3KU"/>
+                                    <constraint firstItem="AZS-Uf-g8X" firstAttribute="leading" secondItem="uhs-Vt-TuY" secondAttribute="leading" id="WRb-59-pw4"/>
+                                    <constraint firstItem="xmw-qL-kFf" firstAttribute="leading" secondItem="3m6-ah-7UG" secondAttribute="trailing" constant="5" id="XhT-O0-Kfx"/>
+                                    <constraint firstAttribute="trailing" secondItem="AZS-Uf-g8X" secondAttribute="trailing" id="eJW-JC-lQR"/>
+                                    <constraint firstItem="3m6-ah-7UG" firstAttribute="leading" secondItem="uhs-Vt-TuY" secondAttribute="leading" constant="25" id="iwU-3Q-Hkf"/>
+                                    <constraint firstItem="AZS-Uf-g8X" firstAttribute="top" secondItem="uhs-Vt-TuY" secondAttribute="top" id="saG-Ug-1Jk"/>
+                                    <constraint firstAttribute="bottom" secondItem="AZS-Uf-g8X" secondAttribute="bottom" id="yDK-xZ-7ud"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGq-QQ-QjU">
+                                <rect key="frame" x="146.5" y="0.0" width="146.5" height="50"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_task-4" translatesAutoresizingMaskIntoConstraints="NO" id="zSx-F4-een">
+                                        <rect key="frame" x="25" y="10" width="30" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="a3g-sJ-nke"/>
+                                            <constraint firstAttribute="width" constant="30" id="hYJ-Oy-Zil"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="考试历史" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUf-RC-nZY">
+                                        <rect key="frame" x="60" y="16.5" width="57.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HrE-sd-UN3">
+                                        <rect key="frame" x="0.0" y="0.0" width="146.5" height="50"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="HrE-sd-UN3" secondAttribute="bottom" id="43x-tJ-2OA"/>
+                                    <constraint firstItem="KUf-RC-nZY" firstAttribute="leading" secondItem="zSx-F4-een" secondAttribute="trailing" constant="5" id="NHy-Is-3JI"/>
+                                    <constraint firstItem="zSx-F4-een" firstAttribute="centerY" secondItem="fGq-QQ-QjU" secondAttribute="centerY" id="Zbc-tE-i6Y"/>
+                                    <constraint firstItem="zSx-F4-een" firstAttribute="leading" secondItem="fGq-QQ-QjU" secondAttribute="leading" constant="25" id="hVd-D6-fiu"/>
+                                    <constraint firstAttribute="trailing" secondItem="HrE-sd-UN3" secondAttribute="trailing" id="lAU-wB-zr6"/>
+                                    <constraint firstItem="HrE-sd-UN3" firstAttribute="leading" secondItem="fGq-QQ-QjU" secondAttribute="leading" id="nAk-t7-ktg"/>
+                                    <constraint firstItem="HrE-sd-UN3" firstAttribute="top" secondItem="fGq-QQ-QjU" secondAttribute="top" id="ueg-mQ-eWK"/>
+                                    <constraint firstItem="KUf-RC-nZY" firstAttribute="centerY" secondItem="zSx-F4-een" secondAttribute="centerY" id="xDT-df-NuY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="uhs-Vt-TuY" firstAttribute="leading" secondItem="zSj-Jb-o8x" secondAttribute="leading" id="1Am-YU-6gd"/>
+                            <constraint firstItem="uhs-Vt-TuY" firstAttribute="top" secondItem="zSj-Jb-o8x" secondAttribute="top" id="2Hq-fU-P5k"/>
+                            <constraint firstItem="fGq-QQ-QjU" firstAttribute="width" secondItem="uhs-Vt-TuY" secondAttribute="width" id="Jc2-bo-UQM"/>
+                            <constraint firstAttribute="trailing" secondItem="fGq-QQ-QjU" secondAttribute="trailing" id="Qt7-RP-Jg2"/>
+                            <constraint firstAttribute="bottom" secondItem="uhs-Vt-TuY" secondAttribute="bottom" id="Qvm-2Q-vFh"/>
+                            <constraint firstItem="fGq-QQ-QjU" firstAttribute="leading" secondItem="uhs-Vt-TuY" secondAttribute="trailing" id="VGp-bZ-hXt"/>
+                            <constraint firstItem="fGq-QQ-QjU" firstAttribute="top" secondItem="zSj-Jb-o8x" secondAttribute="top" id="XpG-FP-7aX"/>
+                            <constraint firstAttribute="bottom" secondItem="fGq-QQ-QjU" secondAttribute="bottom" id="m7J-0u-p1L"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="zSj-Jb-o8x" secondAttribute="trailing" constant="15" id="Bfn-U7-YC3"/>
+                    <constraint firstItem="zSj-Jb-o8x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="FyN-D1-on0"/>
+                    <constraint firstItem="zSj-Jb-o8x" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="IPT-Mr-0it"/>
+                    <constraint firstAttribute="bottom" secondItem="zSj-Jb-o8x" secondAttribute="bottom" constant="15" id="uIe-9M-Xnz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <point key="canvasLocation" x="139.85507246376812" y="110.49107142857143"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_task" width="33" height="33"/>
+        <image name="ic_task-4" width="33" height="33"/>
+    </resources>
+</document>

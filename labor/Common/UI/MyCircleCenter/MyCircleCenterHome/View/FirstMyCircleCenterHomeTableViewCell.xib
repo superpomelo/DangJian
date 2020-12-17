@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="90" id="KGk-i7-Jjw" customClass="FirstMyCircleCenterHomeTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="308" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="308" height="90"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="11L-Mh-48Z">
+                        <rect key="frame" x="0.0" y="0.0" width="308" height="177"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="热度:100w" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Icm-3J-aMB">
+                                <rect key="frame" x="15" y="55.5" width="67" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="OMC-re-SoN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7t-cl-Qox">
+                                <rect key="frame" x="15" y="23" width="72" height="22.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22.5" id="r9X-Rf-b8X"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="劳动圈">
+                                        <attributes>
+                                            <color key="NSColor" red="0.20392156862745098" green="0.20392156862745098" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="24" name="PingFangSC-Semibold"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cj2-JV-VMt">
+                                <rect key="frame" x="213" y="39.5" width="80" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCc-Jp-LzU">
+                                        <rect key="frame" x="2" y="2" width="76" height="26"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="签到">
+                                            <color key="titleColor" red="0.15686274509803921" green="0.14117647058823529" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="theIntegralsignInButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oVn-KN-ZZD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.78431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3ru-2B-bbJ"/>
+                                    <constraint firstItem="FCc-Jp-LzU" firstAttribute="top" secondItem="Cj2-JV-VMt" secondAttribute="top" constant="2" id="ZjP-iZ-3FI"/>
+                                    <constraint firstAttribute="bottom" secondItem="FCc-Jp-LzU" secondAttribute="bottom" constant="2" id="e4x-xB-ygw"/>
+                                    <constraint firstAttribute="width" constant="80" id="fcE-hL-NHE"/>
+                                    <constraint firstAttribute="trailing" secondItem="FCc-Jp-LzU" secondAttribute="trailing" constant="2" id="sjo-CL-Rs2"/>
+                                    <constraint firstItem="FCc-Jp-LzU" firstAttribute="leading" secondItem="Cj2-JV-VMt" secondAttribute="leading" constant="2" id="zgv-or-axV"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_ldq_hot" translatesAutoresizingMaskIntoConstraints="NO" id="RVm-I8-34K">
+                                <rect key="frame" x="85" y="56" width="12" height="12"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="W7t-cl-Qox" firstAttribute="top" secondItem="11L-Mh-48Z" secondAttribute="top" constant="23" id="2wq-xv-Kxx"/>
+                            <constraint firstAttribute="bottom" secondItem="Icm-3J-aMB" secondAttribute="bottom" constant="12" id="48M-Ge-Oe2"/>
+                            <constraint firstItem="Icm-3J-aMB" firstAttribute="top" secondItem="W7t-cl-Qox" secondAttribute="bottom" constant="10" id="IIj-Za-F8z"/>
+                            <constraint firstItem="Cj2-JV-VMt" firstAttribute="centerY" secondItem="W7t-cl-Qox" secondAttribute="centerY" constant="20" id="Onj-Mg-cKx"/>
+                            <constraint firstItem="RVm-I8-34K" firstAttribute="leading" secondItem="Icm-3J-aMB" secondAttribute="trailing" constant="3" id="XKx-zb-Es9"/>
+                            <constraint firstAttribute="trailing" secondItem="Cj2-JV-VMt" secondAttribute="trailing" constant="15" id="Z5C-aK-A70"/>
+                            <constraint firstItem="RVm-I8-34K" firstAttribute="centerY" secondItem="Icm-3J-aMB" secondAttribute="centerY" id="ZI3-l8-EOn"/>
+                            <constraint firstItem="W7t-cl-Qox" firstAttribute="leading" secondItem="11L-Mh-48Z" secondAttribute="leading" constant="15" id="o2C-gn-kau"/>
+                            <constraint firstItem="Icm-3J-aMB" firstAttribute="leading" secondItem="W7t-cl-Qox" secondAttribute="leading" id="tQ9-9q-WkZ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="11L-Mh-48Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="GHb-DO-Zom"/>
+                    <constraint firstAttribute="trailing" secondItem="11L-Mh-48Z" secondAttribute="trailing" id="Hes-AJ-AqP"/>
+                    <constraint firstItem="11L-Mh-48Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Uu6-aF-xBj"/>
+                    <constraint firstAttribute="bottom" secondItem="11L-Mh-48Z" secondAttribute="bottom" id="bo0-V1-Djp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="hotNumLabel" destination="Icm-3J-aMB" id="1Po-R2-nsF"/>
+                <outlet property="theIntegralsignInButton" destination="Cj2-JV-VMt" id="Vc6-jM-CvV"/>
+            </connections>
+            <point key="canvasLocation" x="127.53623188405798" y="123.21428571428571"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_ldq_hot" width="12" height="12"/>
+    </resources>
+</document>
