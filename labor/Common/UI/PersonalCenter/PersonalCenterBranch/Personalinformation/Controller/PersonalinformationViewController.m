@@ -54,7 +54,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _leftInformationArray1 = @[@"账号",@"头像"];
-    _leftInformationArray2 = @[@"真实姓名",@"性别",@"民族",@"出生年月",@"籍贯",@"身份证号"];
+    _leftInformationArray2 = @[@"工号/学号",@"真实姓名",@"性别",@"民族",@"出生年月",@"籍贯",@"身份证号"];
 
     _leftInformationArray3 = @[@"参加工作日期",@"学历",@"入党日期",@"组织名称"];
 
@@ -151,34 +151,45 @@
 
         cell.leftLabel.attributedText = [UILabel getABTbody:_leftInformationArray2[indexPath.row] font:16 color:SL_UIColorFromHex(666666, 1) zitistyle:@"Source Han Serif CN"];
         if (indexPath.row==0) {
+//            if (self.model.partyNumber != nil) {
+            cell.rightLabel.attributedText = [UILabel getABTbody:[NSString stringWithFormat:@"%d",self.model.partyNumber] font:16 color:SL_UIColorFromHex(333333, 1) zitistyle:@"Source Han Serif CN"];
+            cell.rightImageView.hidden = YES;
+//            }
+        }
+        if (indexPath.row==1) {
             if (self.model.realName != nil) {
 
                 cell.rightLabel.attributedText = [UILabel getABTbody:self.model.realName font:16 color:SL_UIColorFromHex(333333, 1) zitistyle:@"Source Han Serif CN"];
             }
-        }else if(indexPath.row==1){
+        }else if(indexPath.row==2){
             if (self.model.sex != nil) {
 
             cell.rightLabel.attributedText = [UILabel getABTbody:self.model.sex font:16 color:SL_UIColorFromHex(333333, 1) zitistyle:@"Source Han Serif CN"];
             }
-        }else if(indexPath.row==2){
+        }else if(indexPath.row==3){
             if (self.model.nationName != nil) {
 
                 cell.rightLabel.attributedText = [UILabel getABTbody:self.model.nationName font:16 color:SL_UIColorFromHex(333333, 1) zitistyle:@"Source Han Serif CN"];
             }
-        }else if(indexPath.row==3){
+        }else if(indexPath.row==4){
             if (self.model.birthday != nil) {
 
-            cell.rightLabel.text = [NSString stringWithFormat:@"%@",[MyTimeInterval IntervalStringToIneedDateString:self.model.birthday type:@"YYYY-MM-dd"]];
+//            cell.rightLabel.text = [NSString stringWithFormat:@"%@",[MyTimeInterval IntervalStringToIneedDateString:self.model.birthday type:@"YYYY-MM-dd"]];
+                
+            cell.rightLabel.attributedText = [UILabel getABTbody:[NSString stringWithFormat:@"%@",[MyTimeInterval IntervalStringToIneedDateString:self.model.birthday type:@"YYYY-MM-dd"]] font:16 color:SL_UIColorFromHex(333333, 1) zitistyle:@"Source Han Serif CN"];
             }
-        }else if(indexPath.row==4){
+        }else if(indexPath.row==5){
             if (self.model.birthdaddrass != nil) {
 
                 cell.rightLabel.attributedText = [UILabel getABTbody:self.model.birthdaddrass font:16 color:SL_UIColorFromHex(333333, 1) zitistyle:@"Source Han Serif CN"];
+                
+                
             }
-        }else if(indexPath.row==5){
+        }else if(indexPath.row==6){
             if (self.model.infoId != nil) {
 
-            cell.rightLabel.text = self.model.infoId;
+//            cell.rightLabel.text = self.model.infoId;
+            cell.rightLabel.attributedText = [UILabel getABTbody:self.model.infoId font:16 color:SL_UIColorFromHex(333333, 1) zitistyle:@"Source Han Serif CN"];
             }
         }
          return cell;
@@ -187,6 +198,8 @@
         if (indexPath.row==0) {
             if (self.model.jobTime != nil) {
             cell.rightLabel.text = [NSString stringWithFormat:@"%@",[MyTimeInterval IntervalStringToIneedDateString:self.model.jobTime type:@"YYYY-MM-dd"]];
+                
+                cell.rightLabel.attributedText = [UILabel getABTbody:[NSString stringWithFormat:@"%@",[MyTimeInterval IntervalStringToIneedDateString:self.model.jobTime type:@"YYYY-MM-dd"]] font:16 color:SL_UIColorFromHex(333333, 1) zitistyle:@"Source Han Serif CN"];
             }
         }else if (indexPath.row == 1){
             if (self.model.educationName != nil) {
@@ -196,7 +209,9 @@
         }else if (indexPath.row == 2){
             if (self.model.partyTime != nil) {
 
-            cell.rightLabel.text = [NSString stringWithFormat:@"%@",[MyTimeInterval IntervalStringToIneedDateString:self.model.partyTime type:@"YYYY-MM-dd"]];
+//            cell.rightLabel.text = [NSString stringWithFormat:@"%@",[MyTimeInterval IntervalStringToIneedDateString:self.model.partyTime type:@"YYYY-MM-dd"]];
+                
+                cell.rightLabel.attributedText = [UILabel getABTbody:[NSString stringWithFormat:@"%@",[MyTimeInterval IntervalStringToIneedDateString:self.model.partyTime type:@"YYYY-MM-dd"]] font:16 color:SL_UIColorFromHex(333333, 1) zitistyle:@"Source Han Serif CN"];
             }
         }else if (indexPath.row == 3){
             if (self.schoolArray.count>0) {
@@ -233,7 +248,7 @@
             [self chooseImageAction];
         }
     }else if (indexPath.section == 1) {
-        if (indexPath.row == 0) {
+        if (indexPath.row == 1) {
             FillInPersonalInformationViewController *FPvc = [[FillInPersonalInformationViewController alloc]init];
             FPvc.model = self.model;
             FPvc.resultBlock = ^(NSString * _Nonnull realname) {
@@ -241,7 +256,7 @@
                 [self.myTableView reloadData];
             };
             [self.navigationController pushViewController:FPvc animated:YES];
-        }else if (indexPath.row == 1){
+        }else if (indexPath.row == 2){
             SexViewController *SXvc = [[SexViewController alloc]init];
             SXvc.resultBlock = ^(NSString * _Nonnull result) {
                 NSLog(@"%@",result);
@@ -251,7 +266,7 @@
             SXvc.model = self.model;
             [self.navigationController pushViewController:SXvc animated:YES];
 
-        }else if (indexPath.row == 2){
+        }else if (indexPath.row == 3){
             MingZuXuanZeViewController *MZvc = [[MingZuXuanZeViewController alloc]init];
             MZvc.resultBlock = ^(NSString * _Nonnull result1, NSString * _Nonnull result2) {
                 self.mingzu = result1;
@@ -260,7 +275,7 @@
             };
             [self.navigationController pushViewController:MZvc animated:YES];
 
-        }else if (indexPath.row == 3){
+        }else if (indexPath.row == 4){
             DateOfBirthViewController *DOvc = [[DateOfBirthViewController alloc]init];
             DOvc.titlestr = @"选择出生日期";
             DOvc.timetype = 0;
@@ -278,13 +293,13 @@
 //
 //            };
 //            [self.navigationController pushViewController:SNvc animated:YES];
-        }else if (indexPath.row == 4){
+        }else if (indexPath.row == 5){
             JiGuan1ViewController *SIvc = [[JiGuan1ViewController alloc]init];
             SIvc.resultBlock = ^(NSString * _Nonnull result) {
                 
             };
             [self.navigationController pushViewController:SIvc animated:YES];
-        }else if (indexPath.row == 5){
+        }else if (indexPath.row == 6){
             IdNumberXiuGaiViewController *INvc = [[IdNumberXiuGaiViewController alloc]init];
             [self.navigationController pushViewController:INvc animated:YES];
         }

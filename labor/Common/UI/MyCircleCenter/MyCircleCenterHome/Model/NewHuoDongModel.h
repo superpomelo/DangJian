@@ -23,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int signUpNum;
 
 @property (nonatomic, assign) int idx;
+@property (nonatomic, assign) int categoryId;
+@property (nonatomic, copy) NSString *categoryName;
+
 @end
 
 NS_ASSUME_NONNULL_END

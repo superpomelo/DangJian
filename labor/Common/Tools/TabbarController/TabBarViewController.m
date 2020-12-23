@@ -33,7 +33,7 @@
 {
 //    [self setHidesBottomBarWhenPushed:YES];
     self.view.backgroundColor = [UIColor whiteColor];
-    NSArray *titles = @[@"首页", @"一校一品",@"党建活动", @"我的"];
+    NSArray *titles = @[@"首页", @"党建之窗",@"组织生活", @"我的"];
     NSArray *images = @[@"路径 14", @"组件 12 – 1",@"组件 14 – 1",  @"组 11"];
     NSArray *selectedImages = @[@"路径 27", @"组件 2 – 1",@"组件 15 – 1",@"联合 2"];
     LaborCenterHomeViewController * oneVc = [[LaborCenterHomeViewController alloc] init];

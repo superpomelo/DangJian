@@ -26,7 +26,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *classNumLabel;
 /**积分*/
 @property (weak, nonatomic) IBOutlet UILabel *jiFenLabel;
+/**积极分子*/
+@property (weak, nonatomic) IBOutlet UILabel *shenfenLabel;
 - (void)reloadData:(PersonalCenterHomeModel*)model;
+
 @end
 
 NS_ASSUME_NONNULL_END

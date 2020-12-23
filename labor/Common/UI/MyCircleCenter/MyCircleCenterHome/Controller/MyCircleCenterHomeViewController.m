@@ -35,6 +35,9 @@
 #import "GuShiFangModel.h"
 #import "MyCircleCenterDetails1ViewController.h"
 
+#import "FivethLearningCenterHomeTableViewCell.h"
+#import "SecondLearningCenterHomeTableViewCell.h"
+#import "ThirdLearningCenterHomeTableViewCell.h"
 
 @interface MyCircleCenterHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,JLCycleScrollerViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -52,6 +55,9 @@
 /**页码*/
 @property(nonatomic,assign)NSInteger tags;
 @property (weak, nonatomic) IBOutlet UILabel *titlesTLabel;
+@property (weak, nonatomic) IBOutlet UIButton *sanhuiyikeButton;
+@property (weak, nonatomic) IBOutlet UIButton *zhutidangriButton;
+@property (weak, nonatomic) IBOutlet UIButton *dangjianshouzhangButton;
 
 @end
 
@@ -63,24 +69,26 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 //    _titleArray = @[@"劳动知识",@"民俗知识",@"国学知识",@"农业科技",@"新闻时事",@"时代先锋"];
-    self.tags = 0;
+    self.tags = 1;
     self.dataArray = [NSMutableArray array];
     self.pingyidataArray = [NSMutableArray array];
     self.lunboarray = [NSArray array];
     self.huodongdataArray = [NSMutableArray array];
-//    self.titleArray = @[@"党员故事坊",@"民主评议",@"电子书屋",@"三会一课",@"主题活动"];
-    self.titleArray = @[@"党员故事坊",@"民主评议",@"三会一课",@"主题活动",@"党建生活"];
+//    self.titleArray = @[@"党员故事坊",@"民主评议",@"三会一课",@"主题活动",@"党建生活"];
+    self.titleArray = @[@"三会一课",@"主题党日",@"党建手账"];
 
     self.mytag = 600;
     [self initUI];
-    [self initscrollerView];
+//    [self initscrollerView];
     [self initmyTableView];
-    [self requestCCmyzonegetList];
-    
+//    [self requestCCmyzonegetList];
+    //三会一课
+    [self requestactivitymobileActivitygetPage];
+    [self requestTeacherLectureHall];
 //    [self requestmobileIndexcarouselIndex];//轮播图
 //    [self requestmobileIndexinformationone]; //劳动知识
     self.fd_prefersNavigationBarHidden = YES;
-    [self requestactivitymobileActivitygetuplist];
+//    [self requestactivitymobileActivitygetuplist];
     
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -91,6 +99,7 @@
 
 //MARK: - Initalization - 初始化
 - (void)initUI{
+    self.sanhuiyikeButton.selected = YES;
     NSMutableAttributedString *attributedString3 = [[NSMutableAttributedString alloc] initWithString:@"党建活动" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Source Han Serif CN" size: 18],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     NSAttributedString *abt3 = attributedString3;
     self.titlesTLabel.attributedText = abt3;
@@ -115,10 +124,11 @@
     for (int i = 0; i<_titleArray.count; i++) {
         UIButton *btn;
         if (i==0) {
-            btn = [[UIButton alloc]initWithFrame:CGRectMake(15+80*i, 0, 100, 40)];
-
+            btn = [[UIButton alloc]initWithFrame:CGRectMake(10+80*i, 0, 110, 50)];
+        
         }else{
-           btn = [[UIButton alloc]initWithFrame:CGRectMake(35+80*i, 0, 80, 40)];
+           btn = [[UIButton alloc]initWithFrame:CGRectMake(10+85*i, 0, 110, 50)];
+            btn.titleLabel.textAlignment = NSTextAlignmentLeft;
 
         }
         [btn setTitle:_titleArray[i] forState:UIControlStateNormal];
@@ -131,7 +141,7 @@
         [btn setAttributedTitle:string forState:UIControlStateNormal];
 
 
-        NSMutableAttributedString *Selstring = [[NSMutableAttributedString alloc] initWithString:_titleArray[i] attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:16],NSForegroundColorAttributeName: [UIColor colorWithRed:212/255.0 green:55/255.0 blue:55/255.0 alpha:1.0]}];
+        NSMutableAttributedString *Selstring = [[NSMutableAttributedString alloc] initWithString:_titleArray[i] attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:22],NSForegroundColorAttributeName: [UIColor colorWithRed:212/255.0 green:55/255.0 blue:55/255.0 alpha:1.0]}];
         [btn setAttributedTitle:Selstring forState:UIControlStateSelected];
         [btn addTarget:self action:@selector(titleButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         btn.tag = 600 + i;
@@ -167,18 +177,17 @@
     
     self.myTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
 
-        self.tags = 0;
+        self.tags = 1;
        // @[@"党员故事坊",@"民主评议",@"三会一课",@"主题活动",@"党建生活"];
         if (self.mytag == 600) {
            
-            [self requestmobileIndexcarouselIndex];//轮播图
-            //党员故事坊
-            [self requestCCmyzonegetList];
-
+            //三会一课
+            [self requestactivitymobileActivitygetPage];
+            [self requestTeacherLectureHall];
 //            [self requestmobileIndexinformationone];
         }else if (self.mytag == 601) {
-            //民主评议
-            [self requestactivityvotingvotingCenter];
+            //主题党日
+            [self requestTeacherLectureHall];
 //            [self requestmobileIndexinformationtwo];
         }else if (self.mytag == 602) {
             //三会一课
@@ -194,18 +203,21 @@
     self.myTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
 
         self.tags++;
-        self.tags = 0;
-       // @[@"党员故事坊",@"民主评议",@"三会一课",@"主题活动",@"党建生活"];
+//        self.tags = 0;
+       // @[@"三会一课",@"主题党日",@"党建手账"];
         if (self.mytag == 600) {
-           
-            [self requestmobileIndexcarouselIndex];//轮播图
-            //党员故事坊
-            [self requestCCmyzonegetList];
+            //三会一课
+            [self requestactivitymobileActivitygetPage];
+            [self requestTeacherLectureHall];
+
+//            [self requestmobileIndexcarouselIndex];//轮播图
+//            //党员故事坊
+//            [self requestCCmyzonegetList];
 
 //            [self requestmobileIndexinformationone];
         }else if (self.mytag == 601) {
-            //民主评议
-            [self requestactivityvotingvotingCenter];
+            //主题党日
+            [self requestTeacherLectureHall];
 //            [self requestmobileIndexinformationtwo];
         }else if (self.mytag == 602) {
             //三会一课
@@ -239,14 +251,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (self.mytag == 600) {
         if (section==0) {
-            return 1;
+            return self.huodongdataArray.count;
+
         }else{
             return self.dataArray.count;
 
         }
 
     }else if (self.mytag == 601){
-        return self.pingyidataArray.count;
+        return self.dataArray.count;
 
     }else{
         return self.huodongdataArray.count;
@@ -258,55 +271,66 @@
     if (self.mytag == 600) {
     
       if (indexPath.section == 0) {
-        FirstLearningCenterHomeTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"FirstLearningCenterHomeTableViewCellID"];
-        if (self.lunboarray.count>0) {
-            NSMutableArray *aryM = [NSMutableArray array];
-            NSMutableArray *titlearyM = [NSMutableArray array];
+          ZhuTiMyCircleCenterHomeTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"ZhuTiMyCircleCenterHomeTableViewCellID"];
 
-            for (int i=0; i<self.lunboarray.count; i++) {
-                GuShiFangModel *model = self.lunboarray[i];
-                if ([model.cover containsString:@","]) {
-                    NSArray *coverary = [model.cover componentsSeparatedByString:@","];
-                    if (coverary.count>0) {
-                        [aryM addObject:coverary[0]];
-
-                    }
-
-                }else{
-                    [aryM addObject:model.cover];
-
-                }
-                [titlearyM addObject:model.title];
-
-            }
-            cell.cycleView.titlessourceArray = titlearyM;
-            cell.cycleView.sourceArray = aryM;
-            cell.cycleView.delegate = self;
-            cell.cycleView.pageControl_right = 0;
-        }
-        return cell;
+          [cell reloadData:self.huodongdataArray[indexPath.row]];
+           return cell;
     }else{
+        LearningCenterHomeModel *model = self.dataArray[indexPath.row];
+        if ([model.body containsString:@"http"]&&[model.body containsString:@"mp4"]) {
+         //视频格式
+            FivethLearningCenterHomeTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"FivethLearningCenterHomeTableViewCellID"];
+            [cell reloadData:model];
+             return cell;
+        }else if ([model.body containsString:@"http"]){
+          //图片格式
+            SecondLearningCenterHomeTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"SecondLearningCenterHomeTableViewCellID"];
+            [cell reloadData:model];
+            return cell;
+        }else{
+          //文字格式
+            ThirdLearningCenterHomeTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"ThirdLearningCenterHomeTableViewCellID"];
+            [cell reloadData:model];
+             return cell;
+        }
         
-        DangYuanGuShiFangModel *model = self.dataArray[indexPath.row];
- 
-          if ([model.cover containsString:@"http"]){
-              //图片格式
-              NewFirstMyCircleCenterHomeTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"NewFirstMyCircleCenterHomeTableViewCellID"];
-                [cell reloadData:model];
-                return cell;
-            }else{
-              //文字格式
-                SecondFirstMyCircleCenterHomeTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"SecondFirstMyCircleCenterHomeTableViewCellID"];
-                [cell reloadData:model];
-                 return cell;
-            }
+//        DangYuanGuShiFangModel *model = self.dataArray[indexPath.row];
+//
+//          if ([model.cover containsString:@"http"]){
+//              //图片格式
+//              NewFirstMyCircleCenterHomeTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"NewFirstMyCircleCenterHomeTableViewCellID"];
+//                [cell reloadData:model];
+//                return cell;
+//            }else{
+//              //文字格式
+//                SecondFirstMyCircleCenterHomeTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"SecondFirstMyCircleCenterHomeTableViewCellID"];
+//                [cell reloadData:model];
+//                 return cell;
+//            }
         }
 
 
     }else if(self.mytag == 601){
-        MingZhuMyCircleCenterHomeTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"MingZhuMyCircleCenterHomeTableViewCellID"];
-        [cell reloadData:self.pingyidataArray[indexPath.row]];
-         return cell;
+//        MingZhuMyCircleCenterHomeTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"MingZhuMyCircleCenterHomeTableViewCellID"];
+//        [cell reloadData:self.pingyidataArray[indexPath.row]];
+//         return cell;
+        LearningCenterHomeModel *model = self.dataArray[indexPath.row];
+        if ([model.body containsString:@"http"]&&[model.body containsString:@"mp4"]) {
+         //视频格式
+            FivethLearningCenterHomeTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"FivethLearningCenterHomeTableViewCellID"];
+            [cell reloadData:model];
+             return cell;
+        }else if ([model.body containsString:@"http"]){
+          //图片格式
+            SecondLearningCenterHomeTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"SecondLearningCenterHomeTableViewCellID"];
+            [cell reloadData:model];
+            return cell;
+        }else{
+          //文字格式
+            ThirdLearningCenterHomeTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"ThirdLearningCenterHomeTableViewCellID"];
+            [cell reloadData:model];
+             return cell;
+        }
     }else if(self.mytag == 602){
         ZhuTiMyCircleCenterHomeTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"ZhuTiMyCircleCenterHomeTableViewCellID"];
         [cell reloadData:self.huodongdataArray[indexPath.row]];
@@ -335,20 +359,41 @@
 //
 //            [self.navigationController pushViewController:LCvc1 animated:YES];
 //        }
-        GuShiFangModel *model = self.dataArray[indexPath.row];
-        MyCircleCenterDetails1ViewController *CDvc1 = [[MyCircleCenterDetails1ViewController alloc]init];
-        [CDvc1 setHidesBottomBarWhenPushed:YES];
-//        CDvc1.model = self.dataArrayM[indexPath.row];
-        CDvc1.idx = [NSString stringWithFormat:@"%d",model.idx];
-        [self.navigationController pushViewController:CDvc1 animated:YES];
+//        GuShiFangModel *model = self.dataArray[indexPath.row];
+//        MyCircleCenterDetails1ViewController *CDvc1 = [[MyCircleCenterDetails1ViewController alloc]init];
+//        [CDvc1 setHidesBottomBarWhenPushed:YES];
+////        CDvc1.model = self.dataArrayM[indexPath.row];
+//        CDvc1.idx = [NSString stringWithFormat:@"%d",model.idx];
+//        [self.navigationController pushViewController:CDvc1 animated:YES];
+        if (indexPath.section==0) {
+            ZhuTiHuoDongDetailsViewController *TAvc = [[ZhuTiHuoDongDetailsViewController alloc]init];
+            NewHuoDongModel *model = self.huodongdataArray[indexPath.row];
+                TAvc.activityId = [NSString stringWithFormat:@"%d",model.idx];
+            [TAvc setHidesBottomBarWhenPushed:YES];
+
+            [self.navigationController pushViewController:TAvc animated:YES];
+        }else if(indexPath.section==1){
+            LearningCenterDetails1NewsViewController *LCvc1 = [[LearningCenterDetails1NewsViewController alloc]init];
+            LearningCenterHomeModel *model = self.dataArray[indexPath.row];
+            LCvc1.informationId = model.idx;
+            [LCvc1 setHidesBottomBarWhenPushed:YES];
+
+            [self.navigationController pushViewController:LCvc1 animated:YES];
+        }
 
     }else if (self.mytag == 601) {
-        MingZhuPingYiDetailsViewController *LCvc1 = [[MingZhuPingYiDetailsViewController alloc]init];
-        MingZhuPingYiModel *model = self.pingyidataArray[indexPath.row];
-        LCvc1.votingId = [NSString stringWithFormat:@"%d",model.idx];
+        LearningCenterDetails1NewsViewController *LCvc1 = [[LearningCenterDetails1NewsViewController alloc]init];
+        LearningCenterHomeModel *model = self.dataArray[indexPath.row];
+        LCvc1.informationId = model.idx;
         [LCvc1 setHidesBottomBarWhenPushed:YES];
 
         [self.navigationController pushViewController:LCvc1 animated:YES];
+//        MingZhuPingYiDetailsViewController *LCvc1 = [[MingZhuPingYiDetailsViewController alloc]init];
+//        MingZhuPingYiModel *model = self.pingyidataArray[indexPath.row];
+//        LCvc1.votingId = [NSString stringWithFormat:@"%d",model.idx];
+//        [LCvc1 setHidesBottomBarWhenPushed:YES];
+//
+//        [self.navigationController pushViewController:LCvc1 animated:YES];
     }else if (self.mytag == 602) {
         ZhuTiHuoDongDetailsViewController *TAvc = [[ZhuTiHuoDongDetailsViewController alloc]init];
         NewHuoDongModel *model = self.huodongdataArray[indexPath.row];
@@ -411,22 +456,40 @@
     if (self.lastbutton == sender) {
         return;
     }
-    self.tags = 0;
+    sender.selected = YES;
+
+    self.tags = 1;
     // @[@"党员故事坊",@"民主评议",@"三会一课",@"主题活动",@"党建生活"];
 
     if (sender.tag == 600) {
         //党员故事坊
         self.mytag = 600;
+//        if (sender.selected == YES) {
+//            sender.frame = CGRectMake(10, -2, 110, 50);
+//            self.lastbutton.frame = CGRectMake(self.lastbutton.frame.origin.x, 0, 110, 50);
+//        }
+
         [self requestCCmyzonegetList];
     }else if (sender.tag == 601){
         //民主评议
         self.mytag = 601;
-        [self requestactivityvotingvotingCenter];
+//        if (sender.selected == YES) {
+//            sender.frame = CGRectMake(10+85*(sender.tag-600), -2, 110, 50);
+//            self.lastbutton.frame = CGRectMake(self.lastbutton.frame.origin.x, 0, 110, 50);
+//
+//        }
 
+        //主题党日
+        [self requestTeacherLectureHall];
 //        [self requestmobileIndexinformationtwo];
     }else if (sender.tag == 602) {
         //三会一课
         self.mytag = 602;
+        if (sender.selected == YES) {
+            sender.frame = CGRectMake(10+85*(sender.tag-600), -2, 110, 50);
+            self.lastbutton.frame = CGRectMake(self.lastbutton.frame.origin.x, 0, 110, 50);
+        }
+
         [self requestactivitymobileActivitygetPage];
     }else if (sender.tag == 603){
         //主题活动
@@ -437,11 +500,42 @@
         self.mytag = 604;
         [self requestactivitymobileActivitygetPage];
     }
-    sender.selected = YES;
     self.lastbutton.selected = NO;
     self.lastbutton = sender;
     
 }
+
+- (IBAction)sanhuiyikeButtonAction:(UIButton*)sender {
+    self.mytag = 600;
+    self.tags = 1;
+    sender.selected = YES;
+    self.zhutidangriButton.selected = NO;
+    self.dangjianshouzhangButton.selected = NO;
+    
+    //三会一课
+    [self requestactivitymobileActivitygetPage];
+    [self requestTeacherLectureHall];
+
+}
+- (IBAction)zhutidangriButtonAction:(UIButton*)sender {
+    self.mytag = 601;
+    self.tags = 1;
+    sender.selected = YES;
+    self.sanhuiyikeButton.selected = NO;
+    self.dangjianshouzhangButton.selected = NO;
+    
+    //主题党日
+    [self requestTeacherLectureHall];
+}
+- (IBAction)dangjianshouzhangButtonAction:(UIButton*)sender {
+    self.mytag = 602;
+
+    self.tags = 1;
+    sender.selected = YES;
+    self.zhutidangriButton.selected = NO;
+    self.sanhuiyikeButton.selected = NO;
+}
+
 //MARK: - Utility - 多用途(功能)方法
 //MARK: - Network request - 网络请求
 /**党员故事坊*/
@@ -500,21 +594,21 @@
 /**三会一课，主题活动，党建活动*/
 - (void)requestactivitymobileActivitygetPage{
      NSMutableDictionary *para = [NSMutableDictionary dictionary];
-    if (self.mytag == 602) {
-        para[@"categoryId"] = @"1";
-
-    }else if(self.mytag == 603) {
-        para[@"categoryId"] = @"2";
-
-    }else if(self.mytag == 604) {
-        para[@"categoryId"] = @"3";
-
-    }
+//    if (self.mytag == 602) {
+//        para[@"categoryId"] = @"1";
+//
+//    }else if(self.mytag == 603) {
+//        para[@"categoryId"] = @"2";
+//
+//    }else if(self.mytag == 604) {
+//        para[@"categoryId"] = @"3";
+//
+//    }
     para[@"current"] = [NSString stringWithFormat:@"%ld",self.tags];
 
     [MyCircleCenterRequestDatas activitymobileActivitygetPagerequestDataWithparameters:para success:^(id  _Nonnull result) {
 //        self.huodongdataArray = result;
-        if (self.tags == 0) {
+        if (self.tags == 1) {
             self.huodongdataArray = result;
         }else{
             [self.huodongdataArray addObjectsFromArray:result];
@@ -634,6 +728,41 @@
         [self.myTableView reloadData];
     } failure:^(NSError * _Nonnull error) {
         
+    }];
+}
+
+/**获取劳动知识*/
+- (void)requestTeacherLectureHall{
+//    1 党建要闻2 业务知识 3 信息公开4 先锋风采5 教育理论 6 习近平新时代中国特色社会主义思想7 公示公告 8 规章制度  9 工作动态 10 探索创新 11 建设成果  12 党建手账 13 思想文圩 14 立德树人  15 首页轮播
+    
+   
+    NSMutableDictionary *para = [NSMutableDictionary dictionary];
+    if (self.mytag == 600) {
+        para[@"classificationId"] = @"12";
+
+    }else if(self.mytag == 601){
+        para[@"classificationId"] = @"11";
+
+    }
+    para[@"current"] = [NSString stringWithFormat:@"%ld",self.tags];
+    [LaborCenterRequestDatas TeacherLectureHallrequestDataWithparameters:para success:^(id  _Nonnull result) {
+        if (self.tags == 1) {
+            self.dataArray = result;
+        }else{
+            [self.dataArray addObjectsFromArray:result];
+        }
+        [self.myTableView reloadData];
+        //手动结束刷新状态
+        [self.myTableView.mj_header endRefreshing];
+        [self.myTableView.mj_footer endRefreshing];
+        NSArray *arrayTemp = result;
+        if (arrayTemp.count<10) {
+            [self.myTableView.mj_footer endRefreshingWithNoMoreData];
+        }
+    } failure:^(NSError * _Nonnull error) {
+        //手动结束刷新状态
+        [self.myTableView.mj_header endRefreshing];
+        [self.myTableView.mj_footer endRefreshing];
     }];
 }
 /*

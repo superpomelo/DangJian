@@ -17,9 +17,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *placeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *renshuLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *myimageView;
+
 - (void)reloadData:(NewHuoDongModel*)model;
+/**灰色背景*/
+@property (weak, nonatomic) IBOutlet UIView *midBottomView;
+/**用来做效果的小三角图片*/
+@property (weak, nonatomic) IBOutlet UIImageView *sanjiaoImageView;
+/**左下的1010直角view*/
+@property (weak, nonatomic) IBOutlet UIView *zhijiao1010View;
 
 @end
 

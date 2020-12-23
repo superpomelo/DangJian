@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *sex;
 @property (nonatomic, copy) NSString *className;
 @property (nonatomic, copy) NSString *departmentName;
+@property (nonatomic, copy) NSString *deptType;
 
 
 

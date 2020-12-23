@@ -47,7 +47,8 @@
     self.tags = 1;
     self.dataArray = [NSMutableArray array];
     self.lunboarray = [NSArray array];
-    self.titleArray = @[@"全部",@"工作动态",@"探索创新",@"建设成果",@"党建手账",@"思想文圩",@"立德树人",@"服务社会"];
+//    self.titleArray = @[@"全部",@"工作动态",@"探索创新",@"建设成果",@"党建手账",@"思想文圩",@"立德树人",@"服务社会"];
+    self.titleArray = @[@"全部",@"工作动态",@"信息公开",@"一院一品",@"立德树人",@"党建带群建"];
     self.mytag = 550;
     [self initUI];
     [self initscrollerView];
@@ -92,8 +93,11 @@
         if (i==0) {
             btn = [[UIButton alloc]initWithFrame:CGRectMake(15+80*i, 0, 40, 40)];
 
+        }else if (i==_titleArray.count-1){
+            btn = [[UIButton alloc]initWithFrame:CGRectMake(15+80*i-40, 0, 90, 40)];
         }else{
            btn = [[UIButton alloc]initWithFrame:CGRectMake(15+80*i-40, 0, 80, 40)];
+            
 
         }
         [btn setTitle:_titleArray[i] forState:UIControlStateNormal];
@@ -388,16 +392,21 @@
         para[@"classificationId"] = @"9";
 
     }else if(self.mytag == 552){
-        para[@"classificationId"] = @"10";
+//        para[@"classificationId"] = @"10";
+        para[@"classificationId"] = @"3";
+
 
     }else if(self.mytag == 553){
-        para[@"classificationId"] = @"11";
+//        para[@"classificationId"] = @"11";
+        para[@"classificationId"] = @"8";
 
     }else if(self.mytag == 554){
-        para[@"classificationId"] = @"12";
+//        para[@"classificationId"] = @"12";
+        para[@"classificationId"] = @"14";
 
     }else if(self.mytag == 555){
-        para[@"classificationId"] = @"13";
+//        para[@"classificationId"] = @"13";
+        para[@"classificationId"] = @"10";
 
     }else if(self.mytag == 556){
         para[@"classificationId"] = @"14";

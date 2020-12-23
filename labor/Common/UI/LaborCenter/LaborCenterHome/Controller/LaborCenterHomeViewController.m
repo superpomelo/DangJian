@@ -81,7 +81,8 @@
     self.activityarray = [NSArray array];
     self.lunboarray = [NSArray array];
    // 1 党建要闻2 业务知识 3 信息公开4 先锋风采5 教育理论 6 习近平新时代中国特色社会主义思想7 公示公告 8 规章制度  9 工作动态 10 探索创新 11 建设成果  12 党建手账 13 思想文圩 14 立德树人  15 首页轮播
-    self.titleArray = @[@"全部",@"党建要闻",@"业务知识",@"信息公开",@"先锋风采",@"教育理论",@"习近平新时代中国特色社会主义思想",@"公示公告",@"规章制度"];
+//    self.titleArray = @[@"全部",@"党建要闻",@"业务知识",@"信息公开",@"先锋风采",@"教育理论",@"习近平新时代中国特色社会主义思想",@"公示公告",@"规章制度"];
+    self.titleArray = @[@"全部",@"党建要闻",@"习近平新时代中国特色社会主义思想",@"先锋风采",@"教育理论"];
     self.mytag = 520;
 
     [self initmyTableView];
@@ -165,15 +166,26 @@
 //    [self viewDidLayoutSubviews];
     for (int i = 0; i<_titleArray.count; i++) {
         UIButton *btn;
+//        if (i==0) {
+//            btn = [[UIButton alloc]initWithFrame:CGRectMake(15+80*i, 0, 40, 40)];
+//
+//        }else if(i==6){
+//            btn = [[UIButton alloc]initWithFrame:CGRectMake(15+80*i-40, 0, 300, 40)];
+//        }else if(i<6){
+//            btn = [[UIButton alloc]initWithFrame:CGRectMake(15+80*i-40, 0, 80, 40)];
+//        }else{
+//            btn = [[UIButton alloc]initWithFrame:CGRectMake(15+80*i-40+220, 0, 80, 40)];
+//
+//        }
         if (i==0) {
             btn = [[UIButton alloc]initWithFrame:CGRectMake(15+80*i, 0, 40, 40)];
 
-        }else if(i==6){
-            btn = [[UIButton alloc]initWithFrame:CGRectMake(15+80*i-40, 0, 300, 40)];
-        }else if(i<6){
+        }else if(i==2){
+            btn = [[UIButton alloc]initWithFrame:CGRectMake(15+80*i-40, 0, 270, 40)];
+        }else if(i<2){
             btn = [[UIButton alloc]initWithFrame:CGRectMake(15+80*i-40, 0, 80, 40)];
         }else{
-            btn = [[UIButton alloc]initWithFrame:CGRectMake(15+80*i-40+220, 0, 80, 40)];
+            btn = [[UIButton alloc]initWithFrame:CGRectMake(15+80*i-40+200, 0, 80, 40)];
 
         }
         [btn setTitle:_titleArray[i] forState:UIControlStateNormal];
@@ -668,13 +680,17 @@
         para[@"classificationId"] = @"1";
 
     }else if(self.mytag == 522){
-        para[@"classificationId"] = @"2";
+        para[@"classificationId"] = @"6";
+
+//        para[@"classificationId"] = @"2";
 
     }else if(self.mytag == 523){
-        para[@"classificationId"] = @"3";
+//        para[@"classificationId"] = @"3";
+        para[@"classificationId"] = @"4";
 
     }else if(self.mytag == 524){
-        para[@"classificationId"] = @"4";
+//        para[@"classificationId"] = @"4";
+        para[@"classificationId"] = @"5";
 
     }else if(self.mytag == 525){
         para[@"classificationId"] = @"5";

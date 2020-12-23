@@ -466,7 +466,10 @@
 
 /**三会一课/主题活动/党建活动*/
 + (void)activitymobileActivitygetPagerequestDataWithparameters:(nullable  id)parameters success:(void (^)(id result))success failure:(void (^)(NSError *error))failure{
-    NSString *path = [NSString stringWithFormat:@"%@activity/mobileActivity/getPage",Host];
+//    NSString *path = [NSString stringWithFormat:@"%@activity/mobileActivity/getPage",Host];
+    NSString *path = [NSString stringWithFormat:@"%@activity/activity/pagetest",Host];
+    
+    
  //    NSString *JsonStr = [JsonString convertToJsonData:parameters];
      [BaseRequestDatas requestDataWithPath:path parameters:parameters HTTPMethod:HTTPMethodGET HeaderType:HeaderTypeContentTypeTOKEN isShowLoading:NO success:^(id  _Nonnull result) {
                 NSLog(@"%@",result);

@@ -38,7 +38,9 @@
  
     NSAttributedString *abt4 = attributedString4;
     self.classNumLabel.attributedText = abt4;
-    
+    NSMutableAttributedString *attributedString5 = [[NSMutableAttributedString alloc] initWithString:model.deptType attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Source Han Serif CN" size: 14],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    self.shenfenLabel.attributedText = attributedString5;
+
 }
 
 @end

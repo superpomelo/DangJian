@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SecondPersonalinformationTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *leftLabel;
 @property (weak, nonatomic) IBOutlet UILabel *rightLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *rightImageView;
 
 @end
 

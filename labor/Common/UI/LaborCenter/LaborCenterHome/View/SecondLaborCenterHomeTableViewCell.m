@@ -17,15 +17,15 @@
     NSAttributedString *abt = attributedString;
     self.p1Label.attributedText = abt;
     
-    NSMutableAttributedString *attributedString2 = [[NSMutableAttributedString alloc] initWithString:@"VR教学" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Source Han Serif CN" size: 14],NSForegroundColorAttributeName:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1]}];
+    NSMutableAttributedString *attributedString2 = [[NSMutableAttributedString alloc] initWithString:@"党务指南" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Source Han Serif CN" size: 14],NSForegroundColorAttributeName:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1]}];
     NSAttributedString *abt2 = attributedString2;
     self.p2Label.attributedText = abt2;
     
-    NSMutableAttributedString *attributedString3 = [[NSMutableAttributedString alloc] initWithString:@"集中培训" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Source Han Serif CN" size: 14],NSForegroundColorAttributeName:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1]}];
+    NSMutableAttributedString *attributedString3 = [[NSMutableAttributedString alloc] initWithString:@"党员发展" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Source Han Serif CN" size: 14],NSForegroundColorAttributeName:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1]}];
     NSAttributedString *abt3 = attributedString3;
     self.p3Label.attributedText = abt3;
     
-    NSMutableAttributedString *attributedString4 = [[NSMutableAttributedString alloc] initWithString:@"知识测试" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Source Han Serif CN" size: 14],NSForegroundColorAttributeName:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1]}];
+    NSMutableAttributedString *attributedString4 = [[NSMutableAttributedString alloc] initWithString:@"红色教育" attributes:@{NSFontAttributeName: [UIFont fontWithName:@"Source Han Serif CN" size: 14],NSForegroundColorAttributeName:[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1]}];
     NSAttributedString *abt4 = attributedString4;
     self.p4Label.attributedText = abt4;
 }
