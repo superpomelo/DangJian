@@ -17,21 +17,25 @@
 #define JiaoSes @"jiaose"
 #define InfoStatus @"infostatus"
 #define AFNetworkReachabilityU @"afnreachability"
+#define DwznS @"Dwzn"
+
 
 #import "UserInfoManager.h"
 
 @implementation UserInfoManager
 
-/**当前坐标点（存）*/
-//+ (void)setCurrentCoordinates:(CLLocation*)Currentcoordinates{
-//    [UserDefault setObject:[NSKeyedArchiver archivedDataWithRootObject:Currentcoordinates] forKey:CurrentCoordinates];
-//    [UserDefault synchronize];
-//    
-//}
-/**当前坐标点（取）*/
-//+ (CLLocation*)getCurrentcoordinates{
-//     return [NSKeyedUnarchiver unarchiveObjectWithData:[UserDefault objectForKey:CurrentCoordinates]];
-//}
+
+/**是否点击党务指南（存）*/
++ (void)setDwzn:(NSString*)Dwzn{
+    [UserDefault setObject:Dwzn forKey:DwznS];
+    [UserDefault synchronize];
+}
+/**是否点击党务指南（取）*/
++ (NSString*)getDwzn{
+    return [UserDefault objectForKey:DwznS];
+}
+
+
 /**当前经度（存）*/
 + (void)setLon:(NSString*)Lonstring{
     [UserDefault setObject:Lonstring forKey:Lons];
@@ -68,12 +72,11 @@
 }
 /**用户角色（取）*/
 + (NSString*)getJiaoSe{
-    return [UserDefault objectForKey:JiaoSes] ;
+    return [UserDefault objectForKey:JiaoSes];
 }
 /**用户token（取）*/
 + (NSString*)getToken{
-    return [UserDefault objectForKey:Token] ;
-    
+    return [UserDefault objectForKey:Token];
 }
 /**用户id（存）*/
 + (void)setUid:(int)uid{

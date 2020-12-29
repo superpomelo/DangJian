@@ -69,14 +69,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 //    _titleArray = @[@"劳动知识",@"民俗知识",@"国学知识",@"农业科技",@"新闻时事",@"时代先锋"];
+    self.dangjianshouzhangButton.hidden = YES;
     self.tags = 1;
     self.dataArray = [NSMutableArray array];
     self.pingyidataArray = [NSMutableArray array];
     self.lunboarray = [NSArray array];
     self.huodongdataArray = [NSMutableArray array];
 //    self.titleArray = @[@"党员故事坊",@"民主评议",@"三会一课",@"主题活动",@"党建生活"];
-    self.titleArray = @[@"三会一课",@"主题党日",@"党建手账"];
-
+//    self.titleArray = @[@"三会一课",@"主题党日",@"党建手账"];
+    self.titleArray = @[@"三会一课",@"主题党日"];
     self.mytag = 600;
     [self initUI];
 //    [self initscrollerView];

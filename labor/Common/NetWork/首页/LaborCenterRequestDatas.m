@@ -21,6 +21,7 @@
 #import "LearningCenterHomeModel.h"
 #import "TeacherLectureHallModel.h"
 #import "TheMessageCenterModel.h"
+#import "JyldHuoDong.h"
 
 @implementation LaborCenterRequestDatas
 /**获取全部*/
@@ -707,5 +708,36 @@
           failure(error);
           NSLog(@"首页搜索 %@ ---%@",parameters,path);
       }];
+}
+
+/**是否有将进行的活动*/
++ (void)activitygetActivitysListrequestDataWith2parameters:(nullable  id)parameters success:(void (^)(id result))success failure:(void (^)(NSError *error))failure{
+    NSString *path = [NSString stringWithFormat:@"%@activity/activity/getActivitysList",Host];
+  //    NSString *JsonStr = [JsonString convertToJsonData:parameters];
+      [BaseRequestDatas requestDataWithPath:path parameters:parameters HTTPMethod:HTTPMethodGET HeaderType:HeaderTypeContentTypeTOKEN isShowLoading:NO success:^(id  _Nonnull result) {
+          NSDictionary *dict = [NSDictionary dictionary];
+          dict = result;
+          NSLog(@"%@",result);
+          if ([dict.allKeys containsObject:@"data"]) {
+              NSDictionary *dict2 = [NSDictionary dictionary];
+              dict2 = dict[@"data"];
+              
+              if ([dict2.allKeys containsObject:@"records"]) {
+                  NSArray *array =  [JyldHuoDong mj_objectArrayWithKeyValuesArray:dict[@"data"][@"records"]]; //数组
+                    success(array);
+              }
+
+          }else{
+              NSLog(@"4");
+
+          }
+      } failure:^(NSError * _Nonnull error) {
+//         [SVProgressHUD showInfoWithStatus:@"failure"];
+  
+          failure(error);
+          NSLog(@"是否有将进行的活动 %@ ---%@",parameters,path);
+      }];
+    
+    
 }
 @end

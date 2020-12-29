@@ -96,6 +96,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**课程详情*/
 + (void)mobileLearngetupdatarequestDataWithparameters:(nullable  id)parameters success:(void (^)(id result))success failure:(void (^)(NSError *error))failure;
+
+/**是否有将进行的活动*/
++ (void)activitygetActivitysListrequestDataWith2parameters:(nullable  id)parameters success:(void (^)(id result))success failure:(void (^)(NSError *error))failure;
 @end
 
 NS_ASSUME_NONNULL_END

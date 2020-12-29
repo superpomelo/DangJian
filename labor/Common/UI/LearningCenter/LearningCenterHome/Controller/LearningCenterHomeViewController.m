@@ -20,6 +20,7 @@
 #import "LaborLunBoModel.h"
 #import "LearningCenterDetails1NewsViewController.h"
 #import "SixthLearningCenterHomeTableViewCell.h"
+#import "UserInfoManager.h"
 
 @interface LearningCenterHomeViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,JLCycleScrollerViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myTableView;
@@ -48,7 +49,15 @@
     self.dataArray = [NSMutableArray array];
     self.lunboarray = [NSArray array];
 //    self.titleArray = @[@"全部",@"工作动态",@"探索创新",@"建设成果",@"党建手账",@"思想文圩",@"立德树人",@"服务社会"];
-    self.titleArray = @[@"全部",@"工作动态",@"信息公开",@"一院一品",@"立德树人",@"党建带群建"];
+    self.titleArray = @[@"全部",@"工作动态",@"信息公开",@"党务指南",@"一院一品",@"立德树人",@"党建带群建"];
+//    if ([[UserInfoManager getDwzn] isEqualToString:@"yes"]) {
+//        //首页党务指南点击进来
+//        self.mytag = 553;
+//    }else{
+//        //正常加载
+//        self.mytag = 550;
+//    }
+    //正常加载
     self.mytag = 550;
     [self initUI];
     [self initscrollerView];
@@ -57,8 +66,25 @@
     [self requestTeacherLectureHall1];
 //    [self requestmobileIndexinformationone]; //劳动知识
     self.fd_prefersNavigationBarHidden = YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(DangWuFaZhanOrder:) name:@"NewOrder" object:nil];
+
+//    [UserInfoManager setDwzn:@"no"];
 
     
+}
+/**首页党务指南跳转*/
+- (void)DangWuFaZhanOrder:(NSNotification *)noti {
+    //首页党务指南点击进来
+    if (self.mytag == 553) {
+        return;
+    }
+    self.mytag = 553;
+    UIButton *btn = (UIButton*)[self.view viewWithTag:553];
+    btn.selected = YES;
+    [self requestTeacherLectureHall];
+
+    self.lastbutton.selected = NO;
+    self.lastbutton = btn;
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -114,10 +140,21 @@
         [btn setAttributedTitle:Selstring forState:UIControlStateSelected];
         [btn addTarget:self action:@selector(titleButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         btn.tag = 550 + i;
-        if (i==0) {
-            btn.selected = YES;
-            self.lastbutton = btn;
-        }
+//        if ([[UserInfoManager getDwzn] isEqualToString:@"yes"]) {
+            //首页点进来的党务指南
+//            if (i==3) {
+//                btn.selected = YES;
+//                self.lastbutton = btn;
+//                [UserInfoManager setDwzn:@"no"];
+//            }
+//        }else{
+            //正常创建
+            if (i==0) {
+                btn.selected = YES;
+                self.lastbutton = btn;
+            }
+//        }
+
         [_scrollView addSubview:btn];
         
     }
@@ -398,21 +435,21 @@
 
     }else if(self.mytag == 553){
 //        para[@"classificationId"] = @"11";
-        para[@"classificationId"] = @"8";
+        para[@"classificationId"] = @"16";
 
     }else if(self.mytag == 554){
 //        para[@"classificationId"] = @"12";
-        para[@"classificationId"] = @"14";
+        para[@"classificationId"] = @"8";
 
     }else if(self.mytag == 555){
 //        para[@"classificationId"] = @"13";
-        para[@"classificationId"] = @"10";
-
-    }else if(self.mytag == 556){
         para[@"classificationId"] = @"14";
 
+    }else if(self.mytag == 556){
+        para[@"classificationId"] = @"10";
+
     }else if(self.mytag == 557){
-        para[@"classificationId"] = @"16";
+//        para[@"classificationId"] = @"16";
 
     }
     para[@"current"] = [NSString stringWithFormat:@"%ld",self.tags];

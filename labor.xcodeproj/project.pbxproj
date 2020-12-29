@@ -266,6 +266,11 @@
 		1F283A0424F7A47B00F99A9B /* PublishTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F283A0224F7A47B00F99A9B /* PublishTaskViewController.xib */; };
 		1F283A0824F7A67800F99A9B /* FirstPublishTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F283A0624F7A67800F99A9B /* FirstPublishTaskTableViewCell.m */; };
 		1F283A0924F7A67800F99A9B /* FirstPublishTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F283A0724F7A67800F99A9B /* FirstPublishTaskTableViewCell.xib */; };
+		1F31E39D25948FCB00C24954 /* YsyPopHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F31E39825948FCA00C24954 /* YsyPopHelper.m */; };
+		1F31E39E25948FCB00C24954 /* YsyPopAnimationManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F31E39C25948FCA00C24954 /* YsyPopAnimationManage.m */; };
+		1F31E3B4259862EB00C24954 /* HuoDongTiShiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F31E3B3259862EB00C24954 /* HuoDongTiShiView.m */; };
+		1F31E3B92598630100C24954 /* HuoDongTiShiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F31E3B82598630100C24954 /* HuoDongTiShiView.xib */; };
+		1F31E3BF25988FF600C24954 /* JyldHuoDong.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F31E3BE25988FF600C24954 /* JyldHuoDong.m */; };
 		1F34CA0E25369E2000541B71 /* FirstMyClassCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F34CA0C25369E2000541B71 /* FirstMyClassCollectionViewCell.m */; };
 		1F34CA0F25369E2000541B71 /* FirstMyClassCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F34CA0D25369E2000541B71 /* FirstMyClassCollectionViewCell.xib */; };
 		1F34CA152536C82300541B71 /* PublishTaskClassStudentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F34CA142536C82300541B71 /* PublishTaskClassStudentModel.m */; };
@@ -1107,6 +1112,16 @@
 		1F283A0524F7A67800F99A9B /* FirstPublishTaskTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstPublishTaskTableViewCell.h; sourceTree = "<group>"; };
 		1F283A0624F7A67800F99A9B /* FirstPublishTaskTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstPublishTaskTableViewCell.m; sourceTree = "<group>"; };
 		1F283A0724F7A67800F99A9B /* FirstPublishTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstPublishTaskTableViewCell.xib; sourceTree = "<group>"; };
+		1F31E39825948FCA00C24954 /* YsyPopHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YsyPopHelper.m; sourceTree = "<group>"; };
+		1F31E39925948FCA00C24954 /* YsyPopAnimationManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YsyPopAnimationManage.h; sourceTree = "<group>"; };
+		1F31E39A25948FCA00C24954 /* YsyPopHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YsyPopHelper.h; sourceTree = "<group>"; };
+		1F31E39B25948FCA00C24954 /* YsyPopMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YsyPopMacro.h; sourceTree = "<group>"; };
+		1F31E39C25948FCA00C24954 /* YsyPopAnimationManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YsyPopAnimationManage.m; sourceTree = "<group>"; };
+		1F31E3B2259862EB00C24954 /* HuoDongTiShiView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HuoDongTiShiView.h; sourceTree = "<group>"; };
+		1F31E3B3259862EB00C24954 /* HuoDongTiShiView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HuoDongTiShiView.m; sourceTree = "<group>"; };
+		1F31E3B82598630100C24954 /* HuoDongTiShiView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HuoDongTiShiView.xib; sourceTree = "<group>"; };
+		1F31E3BD25988FF600C24954 /* JyldHuoDong.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JyldHuoDong.h; sourceTree = "<group>"; };
+		1F31E3BE25988FF600C24954 /* JyldHuoDong.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JyldHuoDong.m; sourceTree = "<group>"; };
 		1F34CA0B25369E2000541B71 /* FirstMyClassCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstMyClassCollectionViewCell.h; sourceTree = "<group>"; };
 		1F34CA0C25369E2000541B71 /* FirstMyClassCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstMyClassCollectionViewCell.m; sourceTree = "<group>"; };
 		1F34CA0D25369E2000541B71 /* FirstMyClassCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstMyClassCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -3390,6 +3405,28 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		1F31E39725948FCA00C24954 /* YsyPopHelper */ = {
+			isa = PBXGroup;
+			children = (
+				1F31E39825948FCA00C24954 /* YsyPopHelper.m */,
+				1F31E39925948FCA00C24954 /* YsyPopAnimationManage.h */,
+				1F31E39A25948FCA00C24954 /* YsyPopHelper.h */,
+				1F31E39B25948FCA00C24954 /* YsyPopMacro.h */,
+				1F31E39C25948FCA00C24954 /* YsyPopAnimationManage.m */,
+			);
+			path = YsyPopHelper;
+			sourceTree = "<group>";
+		};
+		1F31E3B1259860F300C24954 /* 活动提示 */ = {
+			isa = PBXGroup;
+			children = (
+				1F31E3B2259862EB00C24954 /* HuoDongTiShiView.h */,
+				1F31E3B3259862EB00C24954 /* HuoDongTiShiView.m */,
+				1F31E3B82598630100C24954 /* HuoDongTiShiView.xib */,
+			);
+			path = "活动提示";
+			sourceTree = "<group>";
+		};
 		1F34CA192536DE1A00541B71 /* LaborCenterHomeSearchResult */ = {
 			isa = PBXGroup;
 			children = (
@@ -4221,6 +4258,8 @@
 		1F59400A24F35106000B4B2D /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1F31E3B1259860F300C24954 /* 活动提示 */,
+				1F31E39725948FCA00C24954 /* YsyPopHelper */,
 				1F15206E256E0C1100DFC05D /* Label设置字体大小样式 */,
 				1FD476C92550FF5000962CC1 /* 宋体otf */,
 				1F147E32254AB20600DF09FD /* 无网络View */,
@@ -4466,6 +4505,8 @@
 			children = (
 				1F026A86251C76DC00084DAB /* LaborLunBoModel.h */,
 				1F026A87251C76DC00084DAB /* LaborLunBoModel.m */,
+				1F31E3BD25988FF600C24954 /* JyldHuoDong.h */,
+				1F31E3BE25988FF600C24954 /* JyldHuoDong.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -6484,6 +6525,7 @@
 				1F34CA7C25394D9100541B71 /* PerfectClassViewController.xib in Resources */,
 				1F59422524F50046000B4B2D /* NewCirclesTextAndVideoViewController.xib in Resources */,
 				1F0EF6EA24F64241007506E7 /* SecondRankListTableViewCell.xib in Resources */,
+				1F31E3B92598630100C24954 /* HuoDongTiShiView.xib in Resources */,
 				1F593FDD24F34FA7000B4B2D /* Main.storyboard in Resources */,
 				1F91686B24FE4A3900D3D7A4 /* ThirdTheTestTableViewCell.xib in Resources */,
 				1F030B10255E170900B7C66B /* ThirdthFaBuGuShiVTableViewCell.xib in Resources */,
@@ -6711,6 +6753,7 @@
 				1F59415A24F3BD0C000B4B2D /* FirstTaskAssessmentDetailsTableViewCell.m in Sources */,
 				1F7598FC251357220061BACD /* SLImageDecoder.m in Sources */,
 				1F38A8572500E8470032A748 /* ThirdStudentDetailsTableViewCell.m in Sources */,
+				1F31E39E25948FCB00C24954 /* YsyPopAnimationManage.m in Sources */,
 				1F030988255A778900B7C66B /* FirstMingZhuPingYiDetailsViewTableViewCell.m in Sources */,
 				1F030A0F255CC5A100B7C66B /* JiGuan1ViewController.m in Sources */,
 				1F0309CB255B892500B7C66B /* BaoMingOKView.m in Sources */,
@@ -6746,7 +6789,9 @@
 				1F59407D24F3520E000B4B2D /* SecondPersonalCenterHomeTableViewCell.m in Sources */,
 				1F54538E25033E7000C3F3A3 /* FirstFrameOfTheVideo.m in Sources */,
 				1F030A51255D014700B7C66B /* ThirdShenQingShuTableViewCell.m in Sources */,
+				1F31E3BF25988FF600C24954 /* JyldHuoDong.m in Sources */,
 				1F59425024F5194E000B4B2D /* FirstSettingUpTableViewCell.m in Sources */,
+				1F31E39D25948FCB00C24954 /* YsyPopHelper.m in Sources */,
 				1F59413E24F3B26A000B4B2D /* ExaminationResultsViewController.m in Sources */,
 				1F88DC20253D5D31003B428E /* ZeroJieGuoTableViewCell.m in Sources */,
 				1F030A89255D210D00B7C66B /* FirstWoDeXinDeTableViewCell.m in Sources */,
@@ -6955,6 +7000,7 @@
 				1F030B36255E226A00B7C66B /* SecondGuanXiZhuanJie1TableViewCell.m in Sources */,
 				1F030AE8255D3AD300B7C66B /* FirstWoDeGuShiFangTableViewCell.m in Sources */,
 				1F5941DD24F4E90C000B4B2D /* MyCircleCenterDetails1ViewController.m in Sources */,
+				1F31E3B4259862EB00C24954 /* HuoDongTiShiView.m in Sources */,
 				1F44003B25650B51009EAA24 /* MingZhuPingYiModel.m in Sources */,
 				1F7A70B62521894A0040D126 /* FirstPersonalMyCircleTableViewCell.m in Sources */,
 				1F759910251357220061BACD /* UIView+SLFrame.m in Sources */,

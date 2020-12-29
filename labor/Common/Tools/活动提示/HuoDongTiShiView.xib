@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HuoDongTiShiView">
+            <rect key="frame" x="0.0" y="0.0" width="437" height="333"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoR-hA-euU">
+                    <rect key="frame" x="0.0" y="44" width="437" height="255"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于赖怡雯投票的活动即将开始，请报名参加" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQe-Da-BWE">
+                            <rect key="frame" x="25" y="24" width="387" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orG-Ac-rnG">
+                            <rect key="frame" x="25" y="180" width="387" height="45"/>
+                            <color key="backgroundColor" red="0.83137254901960778" green="0.21568627450980393" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="6lb-Fp-APm"/>
+                            </constraints>
+                            <state key="normal" title="去参加">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="myButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="TBC-Nb-GG5"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="orG-Ac-rnG" secondAttribute="bottom" constant="30" id="Bc8-D5-Pck"/>
+                        <constraint firstAttribute="trailing" secondItem="orG-Ac-rnG" secondAttribute="trailing" constant="25" id="IZJ-DI-9LJ"/>
+                        <constraint firstItem="orG-Ac-rnG" firstAttribute="leading" secondItem="aoR-hA-euU" secondAttribute="leading" constant="25" id="Oqx-Hd-s6f"/>
+                        <constraint firstItem="pQe-Da-BWE" firstAttribute="top" secondItem="aoR-hA-euU" secondAttribute="top" constant="24" id="d9P-D4-eSn"/>
+                        <constraint firstAttribute="trailing" secondItem="pQe-Da-BWE" secondAttribute="trailing" constant="25" id="g71-qJ-Xeh"/>
+                        <constraint firstItem="pQe-Da-BWE" firstAttribute="leading" secondItem="aoR-hA-euU" secondAttribute="leading" constant="25" id="zXu-ey-hFQ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="aoR-hA-euU" secondAttribute="bottom" id="ZOQ-ck-QNP"/>
+                <constraint firstItem="aoR-hA-euU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="tvJ-GA-uDl"/>
+                <constraint firstItem="aoR-hA-euU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="uBV-ly-ALu"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aoR-hA-euU" secondAttribute="trailing" id="wvB-Gr-VM0"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="myButton" destination="orG-Ac-rnG" id="7Fm-8O-gge"/>
+                <outlet property="myTextLabel" destination="pQe-Da-BWE" id="wc5-xV-kgI"/>
+            </connections>
+            <point key="canvasLocation" x="144.20289855072465" y="-97.433035714285708"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -20,6 +20,11 @@
 //+ (CLLocation*)getCurrentcoordinates;
 
 
+/**是否点击党务指南（存）*/
++ (void)setDwzn:(NSString*)Dwzn;
+/**是否点击党务指南（取）*/
++ (NSString*)getDwzn;
+
 /**当前经度（存）*/
 + (void)setLon:(NSString*)Lonstring;
 /**当前经度（取）*/
