@@ -524,7 +524,7 @@
         if (indexPath.section==3) {
             
             LearningCenterDetails1NewsViewController *LCvc1 = [[LearningCenterDetails1NewsViewController alloc]init];
-            LearningCenterHomeModel *model = self.lunboarray[indexPath.row];
+            LearningCenterHomeModel *model = self.dataArray[indexPath.row];
             LCvc1.informationId = model.idx;
             [LCvc1 setHidesBottomBarWhenPushed:YES];
 

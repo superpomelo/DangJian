@@ -24,10 +24,10 @@
     self.pleaceBottomView2.layer.borderColor = [UIColor colorWithRed:248/255.0 green:155/255.0 blue:73/255.0 alpha:1].CGColor;
     self.pleaceBottomView2.layer.cornerRadius = 2;
     
-    self.biaoqianBottomView.layer.borderColor = [UIColor colorWithRed:212/255.0 green:55/255.0 blue:55/255.0 alpha:1.0].CGColor;
-    self.biaoqianBottomView.layer.borderWidth = 0.5;
-    self.biaoqianBottomView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
-    self.biaoqianBottomView.layer.cornerRadius = 2;
+//    self.biaoqianBottomView.layer.borderColor = [UIColor colorWithRed:212/255.0 green:55/255.0 blue:55/255.0 alpha:1.0].CGColor;
+//    self.biaoqianBottomView.layer.borderWidth = 0.5;
+//    self.biaoqianBottomView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
+    self.biaoqianBottomView.layer.cornerRadius = 1.5;
     
     self.jiezhiriqi1BottomView.layer.cornerRadius = 2;
 
@@ -36,6 +36,19 @@
 //    self.jiezhiriqiBottomView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
     self.jiezhiriqiBottomView.layer.cornerRadius = 2;
     
+    
+    self.time1BottomView.layer.borderWidth = 0.5;
+    self.time1BottomView.layer.borderColor = [UIColor colorWithRed:212/255.0 green:55/255.0 blue:55/255.0 alpha:1].CGColor;
+    self.time1BottomView.layer.cornerRadius = 2;
+    
+    self.pleaceBottomView1.layer.borderWidth = 0.5;
+    self.pleaceBottomView1.layer.borderColor = [UIColor colorWithRed:248/255.0 green:155/255.0 blue:73/255.0 alpha:1].CGColor;
+    self.pleaceBottomView1.layer.cornerRadius = 2;
+    
+    self.jiezhiriqi1BottomView.layer.borderColor = [UIColor colorWithRed:69/255.0 green:113/255.0 blue:216/255.0 alpha:1.0].CGColor;
+    self.jiezhiriqi1BottomView.layer.borderWidth = 0.5;
+//    self.jiezhiriqiBottomView.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1.0];
+    self.jiezhiriqi1BottomView.layer.cornerRadius = 2;
 }
 - (void)reloadData:(ZhuTiHuoDongModel*)model{
     NSInteger s = model.categoryName.length;

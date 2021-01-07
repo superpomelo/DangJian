@@ -394,6 +394,8 @@
 
                 }
             }
+            cell.stepLabel.text = self.titleArrayM33[indexPath.row];
+
             cell.bodyLabel.text = self.titleArrayM3[indexPath.row];
             cell.tijiaoButton.hidden = YES;
         }else if (self.indexPathMM.row == 3) {
@@ -636,9 +638,9 @@
         self.nav2BottomView.backgroundColor = [UIColor clearColor];
         self.titlesLabel.textColor = [UIColor whiteColor];
         self.backImageView.image = [UIImage imageNamed:@"路径 32"];
-
     }
 }
+
 - (void)FirstMyClassTableViewCellCollectionViewActiondelegate:(FirstMyClassTableViewCell*)cell  CollectionViewindexPath:(NSIndexPath*)indexPath{
     self.indexPathMM = indexPath;
     [self.myTableView reloadData];

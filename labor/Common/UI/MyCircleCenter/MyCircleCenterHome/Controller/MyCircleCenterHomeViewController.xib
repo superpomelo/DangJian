@@ -55,13 +55,13 @@
                             <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="84e-4r-Pak">
-                                    <rect key="frame" x="15" y="8.5" width="76" height="33"/>
+                                    <rect key="frame" x="15" y="8" width="78" height="34.5"/>
                                     <state key="normal">
                                         <attributedString key="attributedTitle">
                                             <fragment content="三会一课">
                                                 <attributes>
                                                     <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="19" name=".PingFangSC-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="19"/>
                                                 </attributes>
                                             </fragment>
                                         </attributedString>
@@ -82,13 +82,13 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pte-rI-6Jp">
-                                    <rect key="frame" x="111" y="8.5" width="76" height="33"/>
+                                    <rect key="frame" x="113" y="8" width="78" height="34.5"/>
                                     <state key="normal">
                                         <attributedString key="attributedTitle">
                                             <fragment content="主题党日">
                                                 <attributes>
                                                     <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="19" name=".PingFangSC-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="19"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
@@ -110,13 +110,13 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UnL-aQ-IDn">
-                                    <rect key="frame" x="207" y="8.5" width="76" height="33"/>
+                                    <rect key="frame" x="211" y="8" width="78" height="34.5"/>
                                     <state key="normal">
                                         <attributedString key="attributedTitle">
                                             <fragment content="党建手账">
                                                 <attributes>
                                                     <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="19" name=".PingFangSC-Regular"/>
+                                                    <font key="NSFont" metaFont="system" size="19"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                 </attributes>
                                             </fragment>
