@@ -11,6 +11,7 @@
 #import "UserInfoManager.h"
 #import "PasswordLoginViewController.h"
 #import "MyPerfectInformationViewController.h"
+#import "RootViewController.h"//TabBarViewController
 
 @interface AppDelegate ()
 
@@ -31,6 +32,8 @@
     if ([[UserInfoManager getLoginStatus] isEqualToString:@"true"]) {
         //已登陆
         TabBarViewController *tabbarVC = [[TabBarViewController alloc]init];
+
+//        RootViewController *tabbarVC = [[RootViewController alloc]init];
         self.window.rootViewController = tabbarVC;
         [self.window makeKeyAndVisible];
     }else{

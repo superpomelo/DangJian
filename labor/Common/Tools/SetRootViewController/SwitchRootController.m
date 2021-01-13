@@ -12,6 +12,7 @@
 #import "PasswordLoginViewController.h"
 
 #import "UserInfoManager.h"
+#import "RootViewController.h"
 
 @implementation SwitchRootController
 +(void)goHomeViewController{
@@ -27,10 +28,13 @@
 //        UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:vc3];
 //        [controllers addObjectsFromArray:@[nav1, nav2, nav3]];
     
-        TabBarViewController *tabBarController = [[TabBarViewController alloc] init];
+//    RootViewController *tabBarController = [[RootViewController alloc] init];
+    TabBarViewController *tabBarController = [[TabBarViewController alloc] init];
+
 //        [tabBarController setTintColor:kGreenColor];
 //        [self customizeTabBarForController:tabBarController];
 //        [tabBarController setViewControllers:controllers];
+    
     UIWindow *window;
     if (@available(iOS 13.0, *)) {
             window = [UIApplication sharedApplication].windows[0];

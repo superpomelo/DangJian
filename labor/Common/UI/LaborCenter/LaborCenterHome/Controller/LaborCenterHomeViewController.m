@@ -41,6 +41,7 @@
 #import "SecondFirstMyCircleCenterHomeTableViewCell.h"
 #import "GuShiFangModel.h"
 #import "MyCircleCenterDetails1ViewController.h"
+#import "DQWKViewController.h"
 
 
 //#import "UINavigationController+FDFullscreenPopGesture.h"
@@ -687,6 +688,7 @@
     TheExamRushedOffViewController *TEvc = [[TheExamRushedOffViewController alloc]init];
     VRSeeCampusViewController *VRvc = [[VRSeeCampusViewController alloc]init];
     MyClassViewController *MCvc = [[MyClassViewController alloc]init];
+    DQWKViewController *PIvc = [[DQWKViewController alloc]initWithNibName:@"DQWKViewController" bundle:nil];
     switch (state) {
         case LaborCenterStateTeacherLectureHall:
             [dq1vc setHidesBottomBarWhenPushed:YES];
@@ -712,8 +714,12 @@
 //            [self.navigationController pushViewController:AOvc animated:YES];
             break;
         case LaborCenterStateVRSeeCampus://VR看校园
-            [TEvc setHidesBottomBarWhenPushed:YES];
-            [self.navigationController pushViewController:TEvc animated:YES];
+//            [TEvc setHidesBottomBarWhenPushed:YES];
+//            [self.navigationController pushViewController:TEvc animated:YES];
+            [PIvc setHidesBottomBarWhenPushed:YES];
+
+            PIvc.urlstring = @"http://ggkf40.cctv.com/";
+            [self.navigationController pushViewController:PIvc animated:NO];
             break;
         default:
             break;

@@ -408,6 +408,10 @@
 		1F54539C2505CD0600C3F3A3 /* FirstExaminationResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F54539A2505CD0600C3F3A3 /* FirstExaminationResultsTableViewCell.xib */; };
 		1F54539F2505F6D600C3F3A3 /* TheTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F54539E2505F6D600C3F3A3 /* TheTestModel.m */; };
 		1F5453A22505FC8400C3F3A3 /* optionsContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5453A12505FC8400C3F3A3 /* optionsContentModel.m */; };
+		1F552E5225ABFB1D002FECF8 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F552E4A25ABFB1D002FECF8 /* RootViewController.m */; };
+		1F552E5325ABFB1D002FECF8 /* JZLTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F552E4E25ABFB1D002FECF8 /* JZLTabBarItem.m */; };
+		1F552E5425ABFB1D002FECF8 /* JZLTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F552E4F25ABFB1D002FECF8 /* JZLTabBar.m */; };
+		1F552E5525ABFB1D002FECF8 /* UITabBar+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F552E5125ABFB1D002FECF8 /* UITabBar+Badge.m */; };
 		1F593FD424F34FA7000B4B2D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F593FD324F34FA7000B4B2D /* AppDelegate.m */; };
 		1F593FDD24F34FA7000B4B2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F593FDB24F34FA7000B4B2D /* Main.storyboard */; };
 		1F593FDF24F34FAA000B4B2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F593FDE24F34FAA000B4B2D /* Assets.xcassets */; };
@@ -1346,6 +1350,14 @@
 		1F54539E2505F6D600C3F3A3 /* TheTestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TheTestModel.m; sourceTree = "<group>"; };
 		1F5453A02505FC8400C3F3A3 /* optionsContentModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = optionsContentModel.h; sourceTree = "<group>"; };
 		1F5453A12505FC8400C3F3A3 /* optionsContentModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = optionsContentModel.m; sourceTree = "<group>"; };
+		1F552E4A25ABFB1D002FECF8 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		1F552E4B25ABFB1D002FECF8 /* JZLTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZLTabBar.h; sourceTree = "<group>"; };
+		1F552E4C25ABFB1D002FECF8 /* JZLTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZLTabBarItem.h; sourceTree = "<group>"; };
+		1F552E4D25ABFB1D002FECF8 /* UITabBar+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Badge.h"; sourceTree = "<group>"; };
+		1F552E4E25ABFB1D002FECF8 /* JZLTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZLTabBarItem.m; sourceTree = "<group>"; };
+		1F552E4F25ABFB1D002FECF8 /* JZLTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZLTabBar.m; sourceTree = "<group>"; };
+		1F552E5025ABFB1D002FECF8 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		1F552E5125ABFB1D002FECF8 /* UITabBar+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Badge.m"; sourceTree = "<group>"; };
 		1F593FCF24F34FA7000B4B2D /* labor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = labor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F593FD224F34FA7000B4B2D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1F593FD324F34FA7000B4B2D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -4168,6 +4180,21 @@
 			path = "获取视频第一帧";
 			sourceTree = "<group>";
 		};
+		1F552E4925ABFB1D002FECF8 /* JZLTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				1F552E5025ABFB1D002FECF8 /* RootViewController.h */,
+				1F552E4A25ABFB1D002FECF8 /* RootViewController.m */,
+				1F552E4B25ABFB1D002FECF8 /* JZLTabBar.h */,
+				1F552E4F25ABFB1D002FECF8 /* JZLTabBar.m */,
+				1F552E4C25ABFB1D002FECF8 /* JZLTabBarItem.h */,
+				1F552E4E25ABFB1D002FECF8 /* JZLTabBarItem.m */,
+				1F552E4D25ABFB1D002FECF8 /* UITabBar+Badge.h */,
+				1F552E5125ABFB1D002FECF8 /* UITabBar+Badge.m */,
+			);
+			path = JZLTabBar;
+			sourceTree = "<group>";
+		};
 		1F593FC624F34FA7000B4B2D = {
 			isa = PBXGroup;
 			children = (
@@ -4258,6 +4285,7 @@
 		1F59400A24F35106000B4B2D /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1F552E4925ABFB1D002FECF8 /* JZLTabBar */,
 				1F31E3B1259860F300C24954 /* 活动提示 */,
 				1F31E39725948FCA00C24954 /* YsyPopHelper */,
 				1F15206E256E0C1100DFC05D /* Label设置字体大小样式 */,
@@ -6743,6 +6771,7 @@
 				1F7A70BE25218B570040D126 /* SecondPersonalMyCircleTableViewCell.m in Sources */,
 				1F5940D824F38916000B4B2D /* SecondLearningCenterHomeTableViewCell.m in Sources */,
 				1F2839F024F78F2900F99A9B /* FirstMyClassTableViewCell.m in Sources */,
+				1F552E5525ABFB1D002FECF8 /* UITabBar+Badge.m in Sources */,
 				1F4A41D32508DDA300ADE536 /* FirstChooseQuestionCollectionViewCell.m in Sources */,
 				1F0AFD482535834900C4A23C /* MyTaskAssessmentTeacherDetailsViewController.m in Sources */,
 				1F7B6B0224FF9A050041CC5F /* JLTextView.m in Sources */,
@@ -6911,6 +6940,7 @@
 				1F5941E724F4E978000B4B2D /* FirstMyCircleCenterDetails1TableViewCell.m in Sources */,
 				1F38A88F2501DF7A0032A748 /* FirstMyTestTableViewCell.m in Sources */,
 				1F3C810C25241BB400D5D5AE /* SecondMyTaskAssessmentTeacher1TableViewCell.m in Sources */,
+				1F552E5325ABFB1D002FECF8 /* JZLTabBarItem.m in Sources */,
 				1F7B6AE024FF7ACD0041CC5F /* FivethLearningCenterDetails2TableViewCell.m in Sources */,
 				1FFB4A9824F8926D003C5FC8 /* PasswordLoginViewController.m in Sources */,
 				1FF14CF9250736B300CB5486 /* SecondLaborCenterLessonDetailsTableViewCell.m in Sources */,
@@ -6926,6 +6956,7 @@
 				1F5941D224F4E7A9000B4B2D /* ThirdMyCircleCenterHomeTableViewCell.m in Sources */,
 				1F0269EC251730BA00084DAB /* SchoolNameModel.m in Sources */,
 				1F75990F251357220061BACD /* SLEditSelectedBox.m in Sources */,
+				1F552E5225ABFB1D002FECF8 /* RootViewController.m in Sources */,
 				1F88DC0D253AA069003B428E /* PerfectClassModel.m in Sources */,
 				1F1520A1256F72F900DFC05D /* ChangJianWenTiViewController.m in Sources */,
 				1F0AFD1D2534348900C4A23C /* PublishTaskClassModel.m in Sources */,
@@ -7006,6 +7037,7 @@
 				1F759910251357220061BACD /* UIView+SLFrame.m in Sources */,
 				1F4400412565149D009EAA24 /* MingZhuPingYiDetailsModel.m in Sources */,
 				1F4A41ED250B618C00ADE536 /* LearningCenterDetailsModel.m in Sources */,
+				1F552E5425ABFB1D002FECF8 /* JZLTabBar.m in Sources */,
 				1F38A87E2501DBB60032A748 /* SelPlaybackControls.m in Sources */,
 				1FF14D08250736F200CB5486 /* FivethLaborCenterLessonDetailsTableViewCell.m in Sources */,
 				1F0AFD172531B82E00C4A23C /* MyTaskAssessmentTeacher2Model.m in Sources */,

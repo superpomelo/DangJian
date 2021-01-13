@@ -35,7 +35,7 @@
     self.titlesLabel.attributedText = [UILabel getABTbody:@"设置" font:16 color:SL_UIColorFromHex(333333, 1) zitistyle:@"Source Han Serif CN"];
     _leftInformationArray = @[@"修改密码",@"推送设置",@"建议反馈",@"关于我们",@"检查更新",@"邀请码",@"退出登录"];
    _leftInformationArray = @[@"修改密码",@"建议反馈",@"退出登录"];
-    _leftInformationArray = @[@"常见问题",@"关于我们",@"用户协议",@"隐私政策"];
+    _leftInformationArray = @[@"关于我们",@"用户协议",@"隐私政策"];
     [self initmyTableView];
     self.fd_prefersNavigationBarHidden = YES;
 
@@ -105,30 +105,30 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
+//        if (indexPath.row == 0) {
+//            ChangJianWenTiViewController *Cvc = [[ChangJianWenTiViewController alloc]init];
+//            [self.navigationController pushViewController:Cvc animated:YES];
+//
+//        }
         if (indexPath.row == 0) {
-            ChangJianWenTiViewController *Cvc = [[ChangJianWenTiViewController alloc]init];
-            [self.navigationController pushViewController:Cvc animated:YES];
-
-        }
-        if (indexPath.row == 1) {
             //关于我们
             AboutUSViewController *Avc = [[AboutUSViewController alloc]init];
             [self.navigationController pushViewController:Avc animated:YES];
         }
 
-        if (indexPath.row == 2) {
+        if (indexPath.row == 1) {
             /// 跳转用户协议界面
             NSLog(@"跳转用户协议界面");
             DQWKViewController *PIvc = [[DQWKViewController alloc]initWithNibName:@"DQWKViewController" bundle:nil];
-            PIvc.urlstring = @"http://111.74.0.243:9161/";
+            PIvc.urlstring = @"http://111.74.0.244:8002/";
 
             [self.navigationController pushViewController:PIvc animated:NO];
         }
-        if (indexPath.row == 3) {
+        if (indexPath.row == 2) {
             /// 跳转隐私政策界面
             NSLog(@"跳转隐私政策界面");
             DQWKViewController *PIvc = [[DQWKViewController alloc]initWithNibName:@"DQWKViewController" bundle:nil];
-            PIvc.urlstring = @"http://111.74.0.243:9162/";
+            PIvc.urlstring = @"http://111.74.0.244:8001/";
             [self.navigationController pushViewController:PIvc animated:NO];
         }
         if (indexPath.row == 100) {

@@ -643,7 +643,9 @@
 
 - (void)dealloc{
     NSLog(@"移除观察者");
-    [self.wk.scrollView removeObserver:self forKeyPath:@"contentSize"];
+    if (_wk != nil) {
+        [self.wk.scrollView removeObserver:self forKeyPath:@"contentSize"];
+    }
 
 }
 //MARK: - Network request - 网络请求
