@@ -13,6 +13,7 @@
 
 #import "UserInfoManager.h"
 #import "RootViewController.h"
+#import "MainTabBarController.h"
 
 @implementation SwitchRootController
 +(void)goHomeViewController{
@@ -29,7 +30,8 @@
 //        [controllers addObjectsFromArray:@[nav1, nav2, nav3]];
     
 //    RootViewController *tabBarController = [[RootViewController alloc] init];
-    TabBarViewController *tabBarController = [[TabBarViewController alloc] init];
+//    TabBarViewController *tabBarController = [[TabBarViewController alloc] init];
+    MainTabBarController *tabBarController = [[MainTabBarController alloc] initWithContext:@""];
 
 //        [tabBarController setTintColor:kGreenColor];
 //        [self customizeTabBarForController:tabBarController];

@@ -14,22 +14,30 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - CYLTabBarController/Core (1.29.0)
+  - CYLTabBarController/Lottie (1.29.0):
+    - CYLTabBarController/Core
+    - lottie-ios (~> 2.5.3)
   - FDFullscreenPopGesture (1.1)
-  - GKPhotoBrowser/SD (2.1.0):
+  - GKPhotoBrowser/Core (2.1.4)
+  - GKPhotoBrowser/SD (2.1.4):
+    - GKPhotoBrowser/Core
     - SDWebImage (~> 5.0)
   - IQKeyboardManager (6.5.6)
+  - lottie-ios (2.5.3)
   - Masonry (1.1.0)
-  - MJExtension (3.2.3)
+  - MJExtension (3.2.2)
   - MJRefresh (3.5.0)
-  - SDWebImage (5.9.3):
-    - SDWebImage/Core (= 5.9.3)
-  - SDWebImage/Core (5.9.3)
+  - SDWebImage (5.10.2):
+    - SDWebImage/Core (= 5.10.2)
+  - SDWebImage/Core (5.10.2)
   - SVProgressHUD (2.2.5)
-  - ZLPhotoBrowser-objc (1.0.1):
+  - ZLPhotoBrowser-objc (1.0.3):
     - SDWebImage
 
 DEPENDENCIES:
   - AFNetworking
+  - CYLTabBarController/Lottie (~> 1.29.0)
   - FDFullscreenPopGesture (= 1.1)
   - GKPhotoBrowser/SD
   - IQKeyboardManager
@@ -43,9 +51,11 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
+    - CYLTabBarController
     - FDFullscreenPopGesture
     - GKPhotoBrowser
     - IQKeyboardManager
+    - lottie-ios
     - Masonry
     - MJExtension
     - MJRefresh
@@ -55,16 +65,18 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  CYLTabBarController: f5460b8446f82d016945d4d53895a1ef185b79e3
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  GKPhotoBrowser: 5faf2b641765940c082d33b58f7a21b68ecd8f3b
+  GKPhotoBrowser: 1f7c0bdd21fc617f1c7cd18d15f26488abf0f973
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
+  lottie-ios: a50d5c0160425cd4b01b852bb9578963e6d92d31
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MJExtension: a6fd35a527dafd7f3f1259017ee57551d58b3bb8
+  MJExtension: d9b9c74cbdeb724c1e9ecbb157b318276e62e876
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
-  SDWebImage: a31ee8e90a97303529e03fb0c333eae0eacb88e9
+  SDWebImage: b969dcfc02c40a5da71eac0b03b8f1a0c794a86f
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  ZLPhotoBrowser-objc: a19ef57b8bb0ffc272a7a64d43157a087b49be2e
+  ZLPhotoBrowser-objc: de73eb06fbd171a7c7e51cf8b181f506bcf09e94
 
-PODFILE CHECKSUM: 3536078b1a168b4f2439c72c927dfbba4ed9ea8c
+PODFILE CHECKSUM: 322e2192e91598ff35183bcf1d31b33bef08753a
 
 COCOAPODS: 1.10.0

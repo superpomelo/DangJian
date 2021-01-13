@@ -1,1 +1,1 @@
-../../../GKPhotoBrowser/GKPhotoBrowser/GKLoadingView.h
+../../../GKPhotoBrowser/GKPhotoBrowser/Core/GKLoadingView.h

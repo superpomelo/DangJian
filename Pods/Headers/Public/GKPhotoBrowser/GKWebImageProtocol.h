@@ -1,1 +1,1 @@
-../../../GKPhotoBrowser/GKPhotoBrowser/GKWebImageProtocol.h
+../../../GKPhotoBrowser/GKPhotoBrowser/Core/GKWebImageProtocol.h

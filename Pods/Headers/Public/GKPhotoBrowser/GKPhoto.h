@@ -1,1 +1,0 @@
-../../../GKPhotoBrowser/GKPhotoBrowser/GKPhoto.h

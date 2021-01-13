@@ -1,1 +1,1 @@
-../../../GKPhotoBrowser/GKPhotoBrowser/GKPhotoBrowserConfigure.h
+../../../GKPhotoBrowser/GKPhotoBrowser/Core/GKPhotoBrowserConfigure.h

@@ -412,6 +412,11 @@
 		1F552E5325ABFB1D002FECF8 /* JZLTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F552E4E25ABFB1D002FECF8 /* JZLTabBarItem.m */; };
 		1F552E5425ABFB1D002FECF8 /* JZLTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F552E4F25ABFB1D002FECF8 /* JZLTabBar.m */; };
 		1F552E5525ABFB1D002FECF8 /* UITabBar+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F552E5125ABFB1D002FECF8 /* UITabBar+Badge.m */; };
+		1F552ED925AE9D19002FECF8 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F552ED825AE9D19002FECF8 /* MainTabBarController.m */; };
+		1F552EE225AE9D56002FECF8 /* 合成 4.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F552EDE25AE9D55002FECF8 /* 合成 4.json */; };
+		1F552EE325AE9D56002FECF8 /* 合成 2.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F552EDF25AE9D55002FECF8 /* 合成 2.json */; };
+		1F552EE425AE9D56002FECF8 /* 合成 3.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F552EE025AE9D55002FECF8 /* 合成 3.json */; };
+		1F552EE525AE9D56002FECF8 /* 合成1.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F552EE125AE9D55002FECF8 /* 合成1.json */; };
 		1F593FD424F34FA7000B4B2D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F593FD324F34FA7000B4B2D /* AppDelegate.m */; };
 		1F593FDD24F34FA7000B4B2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F593FDB24F34FA7000B4B2D /* Main.storyboard */; };
 		1F593FDF24F34FAA000B4B2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F593FDE24F34FAA000B4B2D /* Assets.xcassets */; };
@@ -1358,6 +1363,12 @@
 		1F552E4F25ABFB1D002FECF8 /* JZLTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZLTabBar.m; sourceTree = "<group>"; };
 		1F552E5025ABFB1D002FECF8 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		1F552E5125ABFB1D002FECF8 /* UITabBar+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Badge.m"; sourceTree = "<group>"; };
+		1F552ED725AE9D18002FECF8 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		1F552ED825AE9D19002FECF8 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		1F552EDE25AE9D55002FECF8 /* 合成 4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "合成 4.json"; sourceTree = "<group>"; };
+		1F552EDF25AE9D55002FECF8 /* 合成 2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "合成 2.json"; sourceTree = "<group>"; };
+		1F552EE025AE9D55002FECF8 /* 合成 3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "合成 3.json"; sourceTree = "<group>"; };
+		1F552EE125AE9D55002FECF8 /* 合成1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "合成1.json"; sourceTree = "<group>"; };
 		1F593FCF24F34FA7000B4B2D /* labor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = labor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F593FD224F34FA7000B4B2D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1F593FD324F34FA7000B4B2D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -4195,6 +4206,17 @@
 			path = JZLTabBar;
 			sourceTree = "<group>";
 		};
+		1F552EDD25AE9D3B002FECF8 /* LOTTIE文件 */ = {
+			isa = PBXGroup;
+			children = (
+				1F552EDF25AE9D55002FECF8 /* 合成 2.json */,
+				1F552EE025AE9D55002FECF8 /* 合成 3.json */,
+				1F552EDE25AE9D55002FECF8 /* 合成 4.json */,
+				1F552EE125AE9D55002FECF8 /* 合成1.json */,
+			);
+			path = "LOTTIE文件";
+			sourceTree = "<group>";
+		};
 		1F593FC624F34FA7000B4B2D = {
 			isa = PBXGroup;
 			children = (
@@ -4285,6 +4307,7 @@
 		1F59400A24F35106000B4B2D /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				1F552EDD25AE9D3B002FECF8 /* LOTTIE文件 */,
 				1F552E4925ABFB1D002FECF8 /* JZLTabBar */,
 				1F31E3B1259860F300C24954 /* 活动提示 */,
 				1F31E39725948FCA00C24954 /* YsyPopHelper */,
@@ -4334,6 +4357,8 @@
 		1F59400D24F35154000B4B2D /* TabbarController */ = {
 			isa = PBXGroup;
 			children = (
+				1F552ED725AE9D18002FECF8 /* MainTabBarController.h */,
+				1F552ED825AE9D19002FECF8 /* MainTabBarController.m */,
 				1F59400E24F35155000B4B2D /* TabBarViewController.h */,
 				1F59400F24F35155000B4B2D /* TabBarViewController.m */,
 			);
@@ -6370,6 +6395,7 @@
 				1F5940E824F3896F000B4B2D /* FivethLearningCenterHomeTableViewCell.xib in Resources */,
 				1F030A52255D014700B7C66B /* ThirdShenQingShuTableViewCell.xib in Resources */,
 				1F0309C5255B79BB00B7C66B /* SecondZhuTiHuoDongDetailsTableViewCell.xib in Resources */,
+				1F552EE325AE9D56002FECF8 /* 合成 2.json in Resources */,
 				1FF14CE725062F3700CB5486 /* FirstLearningCenterDetails2CollectionViewCell.xib in Resources */,
 				1F2839EC24F78E1F00F99A9B /* MyClassViewController.xib in Resources */,
 				1F4B89E02510C50E00AE7482 /* FourthMyCircleCenterHomeTableViewCell.xib in Resources */,
@@ -6432,6 +6458,7 @@
 				1F37F0B425515EAE00FFDD12 /* FiveLaborCenterHomeNewsTableViewCell.xib in Resources */,
 				1F88DBF025399103003B428E /* MyPerfectInformationViewController.xib in Resources */,
 				1F5941A724F4DBE9000B4B2D /* LearningCenterDetails2ViewController.xib in Resources */,
+				1F552EE425AE9D56002FECF8 /* 合成 3.json in Resources */,
 				1F0EF6D724F6303E007506E7 /* FourthMyPointsTableViewCell.xib in Resources */,
 				1F030A8A255D210D00B7C66B /* FirstWoDeXinDeTableViewCell.xib in Resources */,
 				1F7A70AF252182640040D126 /* PersonalMyCircleViewController.xib in Resources */,
@@ -6518,6 +6545,7 @@
 				1F34CA7425394D6E00541B71 /* PerfectSchoolViewController.xib in Resources */,
 				1F030991255A77A300B7C66B /* SecondMingZhuPingYiDetailsViewTableViewCell.xib in Resources */,
 				1F030AF5255E157500B7C66B /* FaBuGuShiViewController.xib in Resources */,
+				1F552EE225AE9D56002FECF8 /* 合成 4.json in Resources */,
 				1F3C80FD2524153100D5D5AE /* MyTaskAssessmentTeacher1ViewController.xib in Resources */,
 				1F0AFD1125317E8600C4A23C /* ThirdTheProblemOfFeedbackTableViewCell.xib in Resources */,
 				1F38A84E2500E8080032A748 /* FirstStudentDetailsTableViewCell.xib in Resources */,
@@ -6529,6 +6557,7 @@
 				1FC05963251302490032C111 /* SexViewController.xib in Resources */,
 				1F7B6B1825008E200041CC5F /* SearchCollectionViewCell.xib in Resources */,
 				1F0EF6D224F6302E007506E7 /* ThirdMyPointsTableViewCell.xib in Resources */,
+				1F552EE525AE9D56002FECF8 /* 合成1.json in Resources */,
 				1F0EF67C24F5EDC5007506E7 /* FirstMyCollectionTableViewCell.xib in Resources */,
 				1F1520A2256F72F900DFC05D /* ChangJianWenTiViewController.xib in Resources */,
 				1F2839F624F78F4400F99A9B /* SecondMyClassTableViewCell.xib in Resources */,
@@ -7062,6 +7091,7 @@
 				1F34CA4325392E5100541B71 /* InternalChangePasswordViewController.m in Sources */,
 				1F026A5925198AA200084DAB /* PlayVideoViewController.m in Sources */,
 				1F0269BB2517086F00084DAB /* SchoolNameViewController.m in Sources */,
+				1F552ED925AE9D19002FECF8 /* MainTabBarController.m in Sources */,
 				1F0309B4255B774E00B7C66B /* ZhuTiHuoDongDetailsViewController.m in Sources */,
 				1F59411D24F3A717000B4B2D /* TheExamRushedOffViewController.m in Sources */,
 				1F03094A255916AF00B7C66B /* XBTextLoopView.m in Sources */,

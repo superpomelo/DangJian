@@ -1,1 +1,1 @@
-../../../GKPhotoBrowser/GKPhotoBrowser/GKPanGestureRecognizer.h
+../../../GKPhotoBrowser/GKPhotoBrowser/Core/GKPanGestureRecognizer.h

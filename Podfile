@@ -20,7 +20,8 @@ target ‘labor’ do
     # pod 'MBProgressHUD'
     pod 'MJExtension'
     pod 'AFNetworking'
- 
+    pod 'CYLTabBarController/Lottie', '~> 1.29.0'  # 依赖Lottie库
+
     pod 'MJRefresh'
     # pod 'Material'# 常用控件button点击
 end
