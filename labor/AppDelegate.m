@@ -27,7 +27,7 @@
     //设置全局状态栏字体颜色为黑色
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     //设置全局状态栏字体颜色为白色
-    // [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+//     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
     //判断登录
     if ([[UserInfoManager getLoginStatus] isEqualToString:@"true"]) {

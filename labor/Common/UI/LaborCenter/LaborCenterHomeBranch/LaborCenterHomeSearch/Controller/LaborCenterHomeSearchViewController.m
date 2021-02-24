@@ -46,6 +46,7 @@
 {
     [super viewWillAppear:animated];
     [self requestmobileLearnselectnotes];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 
 //    if ([UserInfoUDManager isLogin]){
 //        self.loginView.hidden = YES;

@@ -82,6 +82,8 @@
 /**页码*/
 @property(nonatomic,assign)NSInteger tags;
 @property (nonatomic,strong) YsyPopHelper *helper;
+/**tabbarbutton刷新*/
+@property(nonatomic,assign)NSInteger tabbarA;
 
 @end
 
@@ -92,7 +94,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.tags = 1;
-    
+    self.tabbarA = 0;
     self.gushifangarray = [NSMutableArray array];
 
     self.gushifanglunboarray = [NSArray array];
@@ -116,7 +118,8 @@
     [self requestactivitygetActivitysList1];//是否有将要开始的活动列表
 //    [self requestmobileIndexinformationone];
     self.fd_prefersNavigationBarHidden = YES;
-    
+    //点击tabbar通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabbarA:) name:@"tabbar0" object:nil];
 //   Font name: SourceHanSerifCN-Medium
 //   Font name: SourceHanSerifCN-Bold
     
@@ -146,13 +149,51 @@
 //
 
 }
+
+/**点击tabbarbutton通知*/
+- (void)tabbarA:(NSNotification*)noti{
+    NSLog(@"%ld",(long)self.myTableView.mj_header.state);
+    //手动结束刷新状态
+    self.tabbarA++;
+    if (self.tabbarA == 1) {
+        self.tags = 1;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.tabbarA = 0;
+            });
+        [self.myTableView.mj_header beginRefreshing];
+        if (self.mytag == 520 ) {
+            [self requestmobileIndexcarouselIndex];
+            [self requestactivitygetActivitysList];
+            [self requestTeacherLectureHall1];
+        }else if (self.mytag == 525){
+            [self requestactivitymobileActivitygetuplist];
+            [self requestCCmyzonegetList];
+        }else{
+            [self requestTeacherLectureHall];
+        }
+    }
+//    if (self.myTableView.mj_header.state == MJRefreshStateIdle) {
+//
+//    }
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self.myTableView.mj_header endRefreshing];
+//    });
+
+
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
 //    [self requestremindMYREMINDsize];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 
+}
 //MARK: - Initalization - 初始化
 /**活动*/
 - (void)addtishiView{

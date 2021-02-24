@@ -39,6 +39,7 @@
     [super viewWillAppear:animated];
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self requestactivityexperiencepages];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 
 }
 

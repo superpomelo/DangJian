@@ -61,6 +61,11 @@
     self.fd_prefersNavigationBarHidden = YES;
 
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+
+}
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
 //    self.backButton.hidden = !self.backButton.hidden;
 }

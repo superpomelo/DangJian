@@ -35,7 +35,8 @@
 /**页码*/
 @property(nonatomic,assign)NSInteger tags;
 @property (weak, nonatomic) IBOutlet UILabel *titlesTLabel;
-
+/**tabbarbutton刷新*/
+@property(nonatomic,assign)NSInteger tabbarB;
 @end
 
 @implementation LearningCenterHomeViewController
@@ -46,6 +47,7 @@
     // Do any additional setup after loading the view from its nib.
 //    _titleArray = @[@"劳动知识",@"民俗知识",@"国学知识",@"农业科技",@"新闻时事",@"时代先锋"];
     self.tags = 1;
+    self.tabbarB = 0;
     self.dataArray = [NSMutableArray array];
     self.lunboarray = [NSArray array];
 //    self.titleArray = @[@"全部",@"工作动态",@"探索创新",@"建设成果",@"党建手账",@"思想文圩",@"立德树人",@"服务社会"];
@@ -67,11 +69,14 @@
 //    [self requestmobileIndexinformationone]; //劳动知识
     self.fd_prefersNavigationBarHidden = YES;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(DangWuFaZhanOrder:) name:@"NewOrder" object:nil];
-
+    //点击tabbar通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabbarB:) name:@"tabbar1" object:nil];
 //    [UserInfoManager setDwzn:@"no"];
 
     
 }
+
+
 /**首页党务指南跳转*/
 - (void)DangWuFaZhanOrder:(NSNotification *)noti {
     //首页党务指南点击进来
@@ -86,11 +91,39 @@
     self.lastbutton.selected = NO;
     self.lastbutton = btn;
 }
+
+/**点击tabbarbutton通知*/
+- (void)tabbarB:(NSNotification*)noti{
+
+    //手动结束刷新状态
+    self.tabbarB++;
+    if (self.tabbarB == 1) {
+        self.tags = 1;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.tabbarB = 0;
+            });
+        [self.myTableView.mj_header beginRefreshing];
+
+        if (self.mytag == 550 ) {
+
+            [self requestmobileIndexcarouselIndex];
+            [self requestTeacherLectureHall1];
+        }else{
+            [self requestTeacherLectureHall];
+        }
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 
+}
+- (void)viewWillDisappear:(BOOL)animated{
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+
+}
 
 //MARK: - Initalization - 初始化
 - (void)initUI{

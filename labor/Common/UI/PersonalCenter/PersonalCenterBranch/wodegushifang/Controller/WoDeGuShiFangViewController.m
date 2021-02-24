@@ -37,6 +37,8 @@
     [super viewWillAppear:animated];
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self requestregisteredupdatemyzonegetmineList];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+
 
 }
 

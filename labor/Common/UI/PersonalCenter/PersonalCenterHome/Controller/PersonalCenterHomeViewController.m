@@ -89,8 +89,13 @@
         _leftInformationArray1 = @[@"个人信息"];
     }
     [self.myTableView reloadData];
-}
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 
+}
+- (void)viewWillDisappear:(BOOL)animated{
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+
+}
 
 //MARK: - Initalization - 初始化
 - (void)initmyTableView{

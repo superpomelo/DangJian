@@ -58,6 +58,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *sanhuiyikeButton;
 @property (weak, nonatomic) IBOutlet UIButton *zhutidangriButton;
 @property (weak, nonatomic) IBOutlet UIButton *dangjianshouzhangButton;
+@property(nonatomic,assign)NSInteger tabbarC;
 
 @end
 
@@ -71,6 +72,8 @@
 //    _titleArray = @[@"劳动知识",@"民俗知识",@"国学知识",@"农业科技",@"新闻时事",@"时代先锋"];
     self.dangjianshouzhangButton.hidden = YES;
     self.tags = 1;
+    self.tabbarC = 0;
+
     self.dataArray = [NSMutableArray array];
     self.pingyidataArray = [NSMutableArray array];
     self.lunboarray = [NSArray array];
@@ -90,13 +93,53 @@
 //    [self requestmobileIndexinformationone]; //劳动知识
     self.fd_prefersNavigationBarHidden = YES;
 //    [self requestactivitymobileActivitygetuplist];
+    //点击tabbar通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabbarC:) name:@"tabbar2" object:nil];
     
+}
+/**点击tabbarbutton通知*/
+- (void)tabbarC:(NSNotification*)noti{
+    //手动结束刷新状态
+    self.tabbarC++;
+    if (self.tabbarC == 1) {
+        self.tags = 1;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                self.tabbarC = 0;
+            });
+        [self.myTableView.mj_header beginRefreshing];
+   // @[@"党员故事坊",@"民主评议",@"三会一课",@"主题活动",@"党建生活"];
+    if (self.mytag == 600) {
+       
+        //三会一课
+        [self requestactivitymobileActivitygetPage];
+        [self requestTeacherLectureHall];
+//            [self requestmobileIndexinformationone];
+    }else if (self.mytag == 601) {
+        //主题党日
+        [self requestTeacherLectureHall];
+//            [self requestmobileIndexinformationtwo];
+    }else if (self.mytag == 602) {
+        //三会一课
+        [self requestactivitymobileActivitygetPage];
+    }else if (self.mytag == 603) {
+        //主题活动
+        [self requestactivitymobileActivitygetPage];
+    }else if (self.mytag == 604) {
+        //党建生活
+        [self requestactivitymobileActivitygetPage];
+    }
+  }
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 
+}
+- (void)viewWillDisappear:(BOOL)animated{
+//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+
+}
 
 //MARK: - Initalization - 初始化
 - (void)initUI{
@@ -156,6 +199,8 @@
     [self.theTitleView addSubview:_scrollView];
 
 }
+
+
 - (void)initmyTableView{
     self.myTableView.delegate = self;
     self.myTableView.dataSource = self;
@@ -232,10 +277,9 @@
         }
     }];
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
     return UITableViewAutomaticDimension;
-
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -559,6 +603,7 @@
         if (arrayTemp.count<10) {
             [self.myTableView.mj_footer endRefreshingWithNoMoreData];
         }
+        
     } failure:^(NSError * _Nonnull error) {
         //手动结束刷新状态
         [self.myTableView.mj_header endRefreshing];

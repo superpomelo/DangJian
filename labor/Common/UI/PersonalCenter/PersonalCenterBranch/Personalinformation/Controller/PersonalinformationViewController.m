@@ -73,6 +73,8 @@
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
     [self requestadmindeptgetDeptVoList];
     [self requestmobileUsergetPersonalCenterVo];
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+
 }
 
 

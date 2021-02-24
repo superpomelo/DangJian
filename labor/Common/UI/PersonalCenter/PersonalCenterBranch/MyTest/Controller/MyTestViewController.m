@@ -36,6 +36,8 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 //    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+
 }
 
 
@@ -58,13 +60,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.dataArray.count == 0) {
         return SCR_H;
-
     }else{
         return 100;
-
     }
-
-
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -76,6 +74,7 @@
 
     }
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
         return 1;
     
@@ -90,10 +89,7 @@
         FirstMyTestTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"FirstMyTestTableViewCellID"];
         [cell reloadData:self.dataArray[indexPath.row]];
         return cell;
-
     }
-
-
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.dataArray.count == 0) {
@@ -121,6 +117,7 @@
     }
 
 }
+
 //MARK: - SubViews - 子视图
 //MARK: - Button Action - 点击事件
 - (IBAction)backButtonAction:(id)sender {

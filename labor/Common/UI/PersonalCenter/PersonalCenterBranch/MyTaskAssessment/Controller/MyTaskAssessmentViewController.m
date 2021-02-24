@@ -47,6 +47,8 @@
     if (self.state == 0) {
         [self requestmobileActivitygetMyHaveNotOver];
     }
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+
 }
 
 

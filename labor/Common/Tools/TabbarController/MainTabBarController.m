@@ -102,7 +102,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
                                                  };
     CGFloat secondXOffset = (-25+2)/2;
     NSDictionary *secondTabBarItemsAttributes = @{
-                                                  CYLTabBarItemTitle : @"鱼塘",
+                                                  CYLTabBarItemTitle : @"党建之窗",
                                                   CYLTabBarItemImage : [UIImage imageNamed:@"联合 2"],
                                                   CYLTabBarItemSelectedImage : @"联合 2",
                                                   CYLTabBarItemTitlePositionAdjustment: [NSValue valueWithUIOffset:UIOffsetMake(secondXOffset, -3.5)],
@@ -111,7 +111,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
                                                   };
     
     NSDictionary *thirdTabBarItemsAttributes = @{
-                                                 CYLTabBarItemTitle : @"消息",
+                                                 CYLTabBarItemTitle : @"组织生活",
                                                  CYLTabBarItemImage : [UIImage imageNamed:@"联合 2"],
                                                  CYLTabBarItemSelectedImage : @"联合 2",
                                                  CYLTabBarItemTitlePositionAdjustment: [NSValue valueWithUIOffset:UIOffsetMake(-secondXOffset, -3.5)],
@@ -154,7 +154,9 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
     // set the text color for selected state
     // 选中状态下的文字属性
     NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
-    selectedAttrs[NSForegroundColorAttributeName] = [UIColor cyl_labelColor];
+//    selectedAttrs[NSForegroundColorAttributeName] = [UIColor cyl_labelColor];
+
+    selectedAttrs[NSForegroundColorAttributeName] = [UIColor colorWithRed:232/255.0 green:35/255.0 blue:41/255.0 alpha:1];
     //selectedAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:10];
 
     // Set the dark color to selected tab (the dimmed background)
@@ -397,6 +399,7 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
     BOOL should = YES;
     [self updateSelectionStatusIfNeededForTabBarController:tabBarController shouldSelectViewController:viewController shouldSelect:should];
     UIControl *selectedTabButton = [viewController.tabBarItem cyl_tabButton];
+
     if (selectedTabButton.selected) {
         @try {
             [[[self class] cyl_topmostViewController] performSelector:@selector(refresh)];
@@ -408,6 +411,19 @@ static CGFloat const CYLTabBarControllerHeight = 40.f;
 }
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectControl:(UIControl *)control {
+    if (tabBarController.selectedIndex == 0) {
+        NSLog(@"0");
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"tabbar0" object:nil];
+    }else if (tabBarController.selectedIndex == 1) {
+        NSLog(@"1");
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"tabbar1" object:nil];
+    }else if (tabBarController.selectedIndex == 2) {
+        NSLog(@"2");
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"tabbar2" object:nil];
+
+    }else if (tabBarController.selectedIndex == 3) {
+        NSLog(@"3");
+    }
     UIView *animationView;
     //    NSLog(@"🔴类名与方法名：%@（在第%@行），描述：control : %@ ,tabBarChildViewControllerIndex: %@, tabBarItemVisibleIndex : %@", @(__PRETTY_FUNCTION__), @(__LINE__), control, @(control.cyl_tabBarChildViewControllerIndex), @(control.cyl_tabBarItemVisibleIndex));
     if ([control cyl_isTabButton]) {
