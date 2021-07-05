@@ -34,6 +34,10 @@
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [labelText length])];
 
     
+//    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:body attributes:@{NSFontAttributeName: [UIFont fontWithName:zitistyle size: font],NSForegroundColorAttributeName:color}];
+
+    
+    
     NSAttributedString *abt = attributedString;
     self.titleLabel.attributedText = abt;
     

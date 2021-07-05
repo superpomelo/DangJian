@@ -364,12 +364,19 @@
  */
 -(void)jl_cycleScrollerView:(JLCycleScrollerView*)view didSelectItemAtIndex:(NSInteger)index sourceArray:(NSArray*)sourceArray{
     if (self.lunboarray.count>0) {
-            LearningCenterDetails1ViewController *LCvc1 = [[LearningCenterDetails1ViewController alloc]init];
-           LaborLunBoModel *model = self.lunboarray[index];
-            LCvc1.informationId = model.idx;
-            [LCvc1 setHidesBottomBarWhenPushed:YES];
+        LearningCenterDetails1NewsViewController *LCvc1 = [[LearningCenterDetails1NewsViewController alloc]init];
+        LaborLunBoModel *model = self.lunboarray[index];
 
-            [self.navigationController pushViewController:LCvc1 animated:YES];
+        LCvc1.informationId = model.idx;
+        [LCvc1 setHidesBottomBarWhenPushed:YES];
+
+        [self.navigationController pushViewController:LCvc1 animated:YES];
+//            LearningCenterDetails1ViewController *LCvc1 = [[LearningCenterDetails1ViewController alloc]init];
+//           LaborLunBoModel *model = self.lunboarray[index];
+//            LCvc1.informationId = model.idx;
+//            [LCvc1 setHidesBottomBarWhenPushed:YES];
+//
+//            [self.navigationController pushViewController:LCvc1 animated:YES];
         
     }
     NSLog(@"%@",sourceArray[index]);

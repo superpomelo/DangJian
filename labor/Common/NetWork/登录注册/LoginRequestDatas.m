@@ -19,7 +19,8 @@
 /**登录*/
 + (void)loginrequestDataWithparameters:(nullable id)parameters success:(void (^)(id result))success failure:(void (^)(NSError *error))failure{
 
-    NSString *path = [NSString stringWithFormat:@"%@admin/mobileUser/gettoken",Host];
+//    NSString *path = [NSString stringWithFormat:@"%@admin/mobileUser/gettoken",Host];
+    NSString *path = [NSString stringWithFormat:@"%@auth/oauth/token",Host];
 
     [BaseRequestDatas requestDataWithPath:path parameters:parameters HTTPMethod:HTTPMethodPOST HeaderType:HeaderTypeBaTOKEN isShowLoading:YES success:^(id  _Nonnull result) {
 //        NSLog(@"%@",result);

@@ -98,7 +98,9 @@
         /// 跳转隐私政策界面
         NSLog(@"跳转隐私政策界面");
         DQWKViewController *PIvc = [[DQWKViewController alloc]initWithNibName:@"DQWKViewController" bundle:nil];
-        PIvc.urlstring = @"http://111.74.0.243:9162/";
+//        PIvc.urlstring = @"http://111.74.0.243:9162/";
+        PIvc.urlstring = @"http://111.74.0.244:81/doc/Privacy-agreement.html";
+
         [self.navigationController pushViewController:PIvc animated:NO];
     }
     /// 协议
@@ -106,16 +108,19 @@
         /// 跳转用户协议界面
         NSLog(@"跳转用户协议界面");
         DQWKViewController *PIvc = [[DQWKViewController alloc]initWithNibName:@"DQWKViewController" bundle:nil];
-        PIvc.urlstring = @"http://111.74.0.243:9161/";
-
+//        PIvc.urlstring = @"http://111.74.0.243:9161/";
+        PIvc.urlstring = @"http://111.74.0.244:81/doc/App-user-agreement.html";
+    
         [self.navigationController pushViewController:PIvc animated:NO];
 
     }
     return YES;
 }
+
 - (IBAction)backButtonAction:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 - (IBAction)lostButtonAction:(UIButton*)sender {
     sender.userInteractionEnabled = NO;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -124,6 +129,7 @@
     LostPassWordViewController *LPvc = [[LostPassWordViewController alloc]init];
     [self.navigationController pushViewController:LPvc animated:YES];
 }
+
 - (IBAction)registerButtonAction:(UIButton*)sender {
     sender.userInteractionEnabled = NO;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -134,18 +140,20 @@
 }
 - (IBAction)loginButtonAction:(UIButton*)sender {
     NSLog(@"1");
+    [self.acTF resignFirstResponder];
+    [self.psTF resignFirstResponder];
     sender.userInteractionEnabled = NO;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         sender.userInteractionEnabled = YES;
     });
     NSMutableDictionary *para = [NSMutableDictionary dictionary];
-//    para[@"grant_type"] = @"password";
+    para[@"grant_type"] = @"password";
     para[@"password"] = [self.psTF.text aci_encryptWithAESWithPSW_AES_KEY:@"wichingwichingas" AES_IV_PARAMETER:@"wichingwichingas"];
 //    para[@"password"] = @"OR+VibFPKf0OpHNPTDZoZQ==";
 //   NSString *s = [@"$2a$10$Vp1CxPTT/QBmU88jZYzkXOYgIq04Kvfd.o.YYqFn0y6rC5hgO/Yqe" aci_decryptWithAESWithPSW_AES_KEY:@"wichingwichingas" AES_IV_PARAMETER:@"wichingwichingas"];
 //    NSLog(@"%@",s);
     para[@"username"] = self.acTF.text;
-//    para[@"scope"] = @"server";
+    para[@"scope"] = @"server";
     [LoginRequestDatas loginrequestDataWithparameters:para success:^(id  _Nonnull result) {
         [SwitchRootController goHomeViewController];
 //        [self  requestadminroleselectUserRole];

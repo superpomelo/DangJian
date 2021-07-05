@@ -734,7 +734,10 @@
         case LaborCenterStateTeacherLectureHall:
             [dq1vc setHidesBottomBarWhenPushed:YES];
 
-            dq1vc.urlstring = @"http://111.74.0.243:9151/";
+//            dq1vc.urlstring = @"http://111.74.0.243:9151/";
+            dq1vc.urlstring = @"https://vr.justeasy.cn/view/161977s8z2od4065.html";
+
+        
             [self.navigationController pushViewController:dq1vc animated:YES];
             break;
         case LaborCenterStateTheTest://考试冲关

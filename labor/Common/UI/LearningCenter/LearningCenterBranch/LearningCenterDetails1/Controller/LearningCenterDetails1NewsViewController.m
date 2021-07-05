@@ -24,13 +24,33 @@
 #import "LearningCenterDetailsModel.h"
 #import "SecondLearningCenterDetails1NewsTableViewCell.h"
 #import "GetCommentVoListModel.h"
+#import "UIView+HSKit.h"
 
 @interface LearningCenterDetails1NewsViewController ()<UITableViewDelegate,UITableViewDataSource,NoNetWorkViewDelegate,WKNavigationDelegate,WKUIDelegate,ThirdLearningCenterDetails1TableViewCellDelegate,SecondLearningCenterDetails1NewsTableViewCellDelegate>
 {
-    CGFloat webContentHeight;
+//    CGFloat webContentHeight;
+    CGFloat _lastWebViewContentHeight;
+    CGFloat _lastTableViewContentHeight;
 }
 
-@property (weak, nonatomic) IBOutlet UITableView *myTableView;
+/**标题*/
+@property (nonatomic, strong) UITableView *myTableView0;
+@property (nonatomic, strong) WKWebView     *webView;
+
+@property (nonatomic, strong) UITableView   *myTableView;
+
+@property (weak, nonatomic) IBOutlet UIView *scrBottomView;
+
+@property (nonatomic, strong) UIScrollView  *containerScrollView;
+//
+@property (nonatomic, strong) UIView        *contentView;
+
+@property (nonatomic, strong) UIView        *topView;
+/**新对象*/
+//@property (weak, nonatomic) IBOutlet UIScrollView *containerScrollView;
+//@property (weak, nonatomic) IBOutlet UIView *contentView;
+
+//@property (weak, nonatomic) IBOutlet UITableView *myTableView;
 /**收藏button*/
 @property (weak, nonatomic) IBOutlet UIButton *collectionButton;
 @property (weak, nonatomic) IBOutlet UIView *TextViewBottomView;
@@ -69,33 +89,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self initmyTableView];
-    self.temp = 0;
-    self.dianzanStatus = 0;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self initValue];
+        [self initView];
+        [self addObservers];
 
-    //加入代码
-//    self.navigationController.navigationBar.translucent = NO;
-    self.wkheight = 1;
-    self.myTableView.hidden = YES;
 
-    self.pinlunNumBottomView.layer.cornerRadius = 14/2;
-    [self addKeyBoardObservers];
+        self.pinlunNumBottomView.layer.cornerRadius = 14/2;
+        [self addKeyBoardObservers];
 
-    [self requestmobileIndexinformationDetails];
-    [self requestmobileIndexgetCommentVoList];
-    [self requestsyscollectmycollectstatus];
-    [self requestsysupmycollectstatusrequestDataWithparametersType:@"1"];
-    [self requestsysintegralsaveIntegralFORMOV];
-    [self requestsysupmycollectalluprequestDataWithparameters];
+        [self requestmobileIndexinformationDetails];
+        [self requestmobileIndexgetCommentVoList];
+        [self requestsyscollectmycollectstatus];
+        [self requestsysupmycollectstatusrequestDataWithparametersType:@"1"];
+        [self requestsysintegralsaveIntegralFORMOV];
+        [self requestsysupmycollectalluprequestDataWithparameters];
+
+        if ([[UserInfoManager getAFNetworkReachabilityStatus] isEqualToString:@"viaWWAN"]||[[UserInfoManager getAFNetworkReachabilityStatus] isEqualToString:@"viaWiFi"]) {
+         //有网络
+        }else{
+           //无网络
+            [self.view addSubview:self.nonetView];
+            self.nonetView.hidden = NO;
+        }
+    });
     self.fd_prefersNavigationBarHidden = YES;
 
-    if ([[UserInfoManager getAFNetworkReachabilityStatus] isEqualToString:@"viaWWAN"]||[[UserInfoManager getAFNetworkReachabilityStatus] isEqualToString:@"viaWiFi"]) {
-     //有网络
-    }else{
-       //无网络
-        [self.view addSubview:self.nonetView];
-        self.nonetView.hidden = NO;
-    }
 }
 
 
@@ -116,18 +135,401 @@
 
 
 - (void)viewWillDisappear:(BOOL)animated {
- [super viewWillDisappear:animated];
-// [IQKeyboardManager sharedManager].enable = YES;
-//    _wk.UIDelegate = nil;
-//    _wk.navigationDelegate = nil;
-//    [_wk.configuration.userContentController removeScriptMessageHandlerForName:@"onError"];
-    [IQKeyboardManager sharedManager].enableAutoToolbar = YES; // 控制是否显示键盘上的工具条
-
+     [super viewWillDisappear:animated];
+      // 控制是否显示键盘上的工具条
+     [IQKeyboardManager sharedManager].enableAutoToolbar = YES;
+    
  }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
     [_textView resignFirstResponder];
+}
+
+
+- (void)dealloc{
+    [self removeObservers];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+- (void)initValue{
+    _lastWebViewContentHeight = 0;
+    _lastTableViewContentHeight = 0;
+}
+
+- (void)initView{
+//    _containerScrollView.contentSize = CGSizeMake(SCR_W, SCR_H);
+
+//    [self.contentView addSubview:self.topView];
+    [self.contentView addSubview:self.webView];
+    [self.contentView addSubview:self.myTableView];
+    [self.contentView addSubview:self.myTableView0];
+
+    [self.scrBottomView addSubview:self.containerScrollView];
+    [self.containerScrollView addSubview:self.contentView];
+
+    self.contentView.frame = CGRectMake(0, 0, SCR_W, SCR_H * 2);
+//    self.topView.frame = CGRectMake(0, 0, SCR_W, 200);
+    self.webView.top = self.myTableView0.height;
+
+//    self.webView.top = self.topView.height;
+    self.webView.height = SCR_H;
+    self.myTableView.top = self.webView.bottom;
+}
+
+
+#pragma mark - Observers
+- (void)addObservers{
+    [self.webView addObserver:self forKeyPath:@"scrollView.contentSize" options:NSKeyValueObservingOptionNew context:nil];
+    [self.myTableView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
+    [self.myTableView0 addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
+
+}
+
+- (void)removeObservers{
+    [self.webView removeObserver:self forKeyPath:@"scrollView.contentSize"];
+    [self.myTableView removeObserver:self forKeyPath:@"contentSize"];
+    [self.myTableView0 removeObserver:self forKeyPath:@"contentSize"];
+
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if (object == _webView) {
+        if ([keyPath isEqualToString:@"scrollView.contentSize"]) {
+            [self updateContainerScrollViewContentSize:0 webViewContentHeight:0];
+        }
+    }else if(object == _myTableView) {
+        if ([keyPath isEqualToString:@"contentSize"]) {
+            [self updateContainerScrollViewContentSize:0 webViewContentHeight:0];
+        }
+    }else if(object == _myTableView0) {
+        if ([keyPath isEqualToString:@"contentSize"]) {
+            [self updateContainerScrollViewContentSize:0 webViewContentHeight:0];
+        }
+    }
+}
+
+- (void)updateContainerScrollViewContentSize:(NSInteger)flag webViewContentHeight:(CGFloat)inWebViewContentHeight{
+    
+    CGFloat webViewContentHeight = flag==1 ?inWebViewContentHeight :self.webView.scrollView.contentSize.height;
+    CGFloat tableViewContentHeight = self.myTableView.contentSize.height;
+    
+    if (webViewContentHeight == _lastWebViewContentHeight && tableViewContentHeight == _lastTableViewContentHeight) {
+        return;
+    }
+    //new
+//    [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.height.equalTo(self.myTableView0);
+//    }];
+//    [self.myTableView0 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.height.equalTo(self.myTableView0);
+//
+//    }];
+//    self.topView.height = self.myTableView0.contentSize.height;
+//    self.myTableView0.height = self.myTableView0.contentSize.height;
+    
+    _lastWebViewContentHeight = webViewContentHeight;
+    _lastTableViewContentHeight = tableViewContentHeight;
+    
+    self.containerScrollView.contentSize = CGSizeMake(SCR_W, self.webView.top + webViewContentHeight + tableViewContentHeight);
+    
+    CGFloat webViewHeight = (webViewContentHeight < SCR_H) ?webViewContentHeight :SCR_H ;
+    CGFloat tableViewHeight = tableViewContentHeight < SCR_H ?tableViewContentHeight :SCR_H;
+    self.webView.height = webViewHeight <= 0.1 ?0.1 :webViewHeight;
+    self.contentView.height = self.webView.top +webViewHeight + tableViewHeight;
+    //new
+//    self.topView.frame = CGRectMake(0, 0, SCR_W, self.myTableView0.contentSize.height);
+//    self.myTableView0.frame = CGRectMake(0, 0, SCR_W, self.myTableView0.contentSize.height);
+//    NSLog(@"%f",self.myTableView0.contentSize.height);
+//        self.topView.height = self.myTableView0.contentSize.height;
+//        self.myTableView0.height = self.myTableView0.contentSize.height;
+    self.myTableView0.height = self.myTableView0.contentSize.height;
+    self.webView.top = self.myTableView0.bottom;
+    self.myTableView.height = tableViewHeight;
+    self.myTableView.top = self.webView.bottom;
+
+    //Fix:contentSize变化时需要更新各个控件的位置
+    [self scrollViewDidScroll:self.containerScrollView];
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (_containerScrollView != scrollView) {
+        return;
+    }
+    
+    CGFloat offsetY = scrollView.contentOffset.y;
+    
+    CGFloat webViewHeight = self.webView.height;
+    CGFloat tableViewHeight = self.myTableView.height;
+    CGFloat tableView0Height = self.myTableView0.height;
+
+    CGFloat webViewContentHeight = self.webView.scrollView.contentSize.height;
+    CGFloat tableViewContentHeight = self.myTableView.contentSize.height;
+    CGFloat tableView0ContentHeight = self.myTableView0.contentSize.height;
+
+    //CGFloat topViewHeight = self.topView.height;
+    CGFloat webViewTop = self.webView.top;
+//    self.webView.top = self.myTableView0.bottom;
+//    self.myTableView.top = self.webView.bottom;
+    CGFloat netOffsetY = offsetY - webViewTop;
+    
+    if (netOffsetY <= 0) {
+        self.contentView.top = 0;
+        self.webView.scrollView.contentOffset = CGPointZero;
+        self.myTableView.contentOffset = CGPointZero;
+    }else if(netOffsetY  < webViewContentHeight - webViewHeight){
+        self.contentView.top = netOffsetY;
+        self.webView.scrollView.contentOffset = CGPointMake(0, netOffsetY);
+        self.myTableView.contentOffset = CGPointZero;
+    }else if(netOffsetY < webViewContentHeight){
+        self.contentView.top = webViewContentHeight - webViewHeight;
+        self.webView.scrollView.contentOffset = CGPointMake(0, webViewContentHeight - webViewHeight);
+        self.myTableView.contentOffset = CGPointZero;
+    }else if(netOffsetY < webViewContentHeight + tableViewContentHeight - tableViewHeight+tableView0ContentHeight-tableView0Height){
+        self.contentView.top = offsetY - webViewHeight - webViewTop;
+        self.myTableView.contentOffset = CGPointMake(0, offsetY - webViewContentHeight - webViewTop);
+        self.webView.scrollView.contentOffset = CGPointMake(0, webViewContentHeight - webViewHeight);
+    }else if(netOffsetY <= webViewContentHeight + tableViewContentHeight +tableView0ContentHeight){
+        self.contentView.top = self.containerScrollView.contentSize.height - self.contentView.height;
+        self.webView.scrollView.contentOffset = CGPointMake(0, webViewContentHeight - webViewHeight);
+        self.myTableView.contentOffset = CGPointMake(0, tableViewContentHeight - tableViewHeight);
+    }else {
+        //do nothing
+        NSLog(@"do nothing");
+    }
+}
+
+#pragma mark - UITableViewDataSouce
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if (tableView.tag==600) {
+//        return 50;
+//    }else
+    return UITableViewAutomaticDimension;
+}
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 2;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (tableView.tag==600) {
+        return 1;
+    }else{
+        switch (section) {
+            case 0:
+                return 1;
+                break;
+            case 1:
+                if (self.CommentVoListArray.count==0){
+                    return 1;
+                    break;
+
+                }else{
+                    return  self.CommentVoListArray.count;
+                    break;
+
+                }
+            default:
+                break;
+        }
+    }
+
+    return 0;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (tableView.tag==600) {
+        return 0;
+    }else{
+        if (section == 0) {
+            return 0;
+        }else{
+            return 45;
+        }
+    }
+
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (tableView.tag==600) {
+        return nil;
+
+    }else{
+        if (section == 1) {
+            UIView *vi = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCR_W, 35)];
+            vi.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1];
+
+            [tableView addSubview:vi];
+            UIView *vibg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCR_W, 10)];
+            vibg.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
+
+            [vi addSubview:vibg];
+
+            //线
+            UIView *linevibg = [[UIView alloc]initWithFrame:CGRectMake(0, 44.5, SCR_W, 0.5)];
+            linevibg.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1];
+
+            [vi addSubview:linevibg];
+            
+            UILabel *lbR = [[UILabel alloc]initWithFrame:CGRectMake(15, 20, 4, 16)];
+            lbR.backgroundColor = [UIColor colorWithRed:196/255.0 green:48/255.0 blue:48/255.0 alpha:1.0];
+            [vi addSubview:lbR];
+
+            UILabel *lb = [[UILabel alloc]initWithFrame:CGRectMake(25, 10, SCR_W, 35)];
+    //        lb.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1];
+            NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"评论" attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:16],NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0]}];
+            lb.attributedText = attributedString;
+            [vi addSubview:lb];
+            return vi;
+        }else{
+            return nil;
+        }
+    }
+
+
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView.tag == 600) {
+            if (indexPath.section == 0) {
+                FivethLearningCenterDetails1TableViewCell *cell = [self.myTableView0 dequeueReusableCellWithIdentifier:@"FivethLearningCenterDetails1TableViewCellID"];
+                if (self.titles != nil) {
+                    [cell reloadData:self.titles];
+        
+                }
+                    return cell;
+        
+        
+            }else{
+        
+                SixLearningCenterDetails1TableViewCell *cell = [self.myTableView0 dequeueReusableCellWithIdentifier:@"SixLearningCenterDetails1TableViewCellID"];
+                if (self.laiyuanstr != nil) {
+                    cell.laiyuanLabel.text = self.laiyuanstr;
+        
+                }
+                if (self.timestr != nil) {
+                    cell.timeLabel.text = [MyTimeInterval IntervalStringToIneedDateString:self.timestr type:@"YYYY-MM-dd"];
+        
+                }
+                return cell;
+            }
+    }else{
+        if (indexPath.section==0) {
+            SecondLearningCenterDetails1NewsTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"SecondLearningCenterDetails1NewsTableViewCellID"];
+                   cell.delegate = self;
+                   [cell reloadData:self.selectNum];
+                   [cell reloadData2:self.dianzanNum];
+                   [cell reloadData3:self.dianzanStatus];
+            return cell;
+        }else{
+            if (self.CommentVoListArray.count==0){
+                //评论
+                ZeropinlunTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"ZeropinlunTableViewCellID"];
+                
+                return cell;
+
+            }else{
+                //评论
+               ThirdLearningCenterDetails1TableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"ThirdLearningCenterDetails1TableViewCellID"];
+                cell.delegate = self;
+                cell.indexpath = indexPath;
+                [cell reloadData:self.CommentVoListArray[indexPath.row]];
+                return cell;
+
+            }
+
+        }
+    }
+ 
+}
+
+#pragma mark - private
+- (WKWebView *)webView{
+    if (_webView == nil) {
+        NSMutableString *jScript = [[NSMutableString alloc]initWithString:@"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta); var imgs = document.getElementsByTagName('img');for (var i in imgs){imgs[i].style.maxWidth='100%';imgs[i].style.height='auto';}"];
+
+        WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+        WKUserContentController *wkUController = [[WKUserContentController alloc] init];
+        [wkUController addUserScript:wkUScript];
+
+        WKWebViewConfiguration *wkWebConfig = [[WKWebViewConfiguration alloc] init];
+        wkWebConfig.userContentController = wkUController;
+
+
+        _webView = [[WKWebView alloc] initWithFrame:CGRectMake(10, 0, SCR_W-20, self.wkheight) configuration:wkWebConfig];
+        _wk.UIDelegate = self;
+        _webView.scrollView.scrollEnabled = NO;
+//        _webView.navigationDelegate = self;
+        
+
+    }
+    
+    return _webView;
+}
+- (UITableView *)myTableView0{
+    if (_myTableView0 == nil) {
+        _myTableView0 = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCR_W, 50) style:UITableViewStylePlain];
+//        _myTableView0 = [[UITableView alloc] init];
+        _myTableView0.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        _myTableView0.delegate = self;
+        _myTableView0.dataSource = self;
+        _myTableView0.tableFooterView = [UIView new];
+        _myTableView0.scrollEnabled = NO;
+        _myTableView0.tag = 600;
+        _myTableView0.separatorStyle = UITableViewCellSeparatorStyleNone;
+//        _myTableView0.backgroundColor = [UIColor redColor];
+        [_myTableView0 registerNib:[UINib nibWithNibName:@"FivethLearningCenterDetails1TableViewCell" bundle:nil] forCellReuseIdentifier:@"FivethLearningCenterDetails1TableViewCellID"];
+        [_myTableView0 registerNib:[UINib nibWithNibName:@"SixLearningCenterDetails1TableViewCell" bundle:nil] forCellReuseIdentifier:@"SixLearningCenterDetails1TableViewCellID"];
+      
+    }
+    return _myTableView0;
+}
+- (UITableView *)myTableView{
+    if (_myTableView == nil) {
+        _myTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _myTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+        _myTableView.delegate = self;
+        _myTableView.dataSource = self;
+        _myTableView.tableFooterView = [UIView new];
+        _myTableView.scrollEnabled = NO;
+        _myTableView.tag = 601;
+        _myTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
+
+        [_myTableView registerNib:[UINib nibWithNibName:@"ThirdLearningCenterDetails1TableViewCell" bundle:nil] forCellReuseIdentifier:@"ThirdLearningCenterDetails1TableViewCellID"];
+        [_myTableView registerNib:[UINib nibWithNibName:@"SecondLearningCenterDetails1NewsTableViewCell" bundle:nil] forCellReuseIdentifier:@"SecondLearningCenterDetails1NewsTableViewCellID"];
+        [_myTableView registerNib:[UINib nibWithNibName:@"ZeropinlunTableViewCell" bundle:nil] forCellReuseIdentifier:@"ZeropinlunTableViewCellID"];
+    }
+    return _myTableView;
+}
+
+- (UIScrollView *)containerScrollView{
+    if (_containerScrollView == nil) {
+        _containerScrollView = [[UIScrollView alloc] initWithFrame:self.scrBottomView.bounds];
+        _containerScrollView.delegate = self;
+        _containerScrollView.alwaysBounceVertical = YES;
+    }
+
+    return _containerScrollView;
+}
+
+- (UIView *)contentView{
+    if (_contentView == nil) {
+        _contentView = [[UIView alloc] init];
+    }
+
+    return _contentView;
+}
+
+- (UIView *)topView{
+    if (_topView == nil) {
+        _topView = [[UIView alloc] init];
+        _topView.backgroundColor = [UIColor yellowColor];
+    }
+    
+    return _topView;
 }
 //MARK: - Initalization - 初始化
 
@@ -200,14 +602,14 @@
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCR_W, 1)];
     line.backgroundColor = [UIColor colorWithRed:243/255.0 green:243/255.0 blue:243/255.0 alpha:1];
     
-    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, SCR_H, SCR_W, 80+24)];
-    contentView.backgroundColor = [UIColor whiteColor];
+    UIView *tcontentView = [[UIView alloc] initWithFrame:CGRectMake(0, SCR_H, SCR_W, 80+24)];
+    tcontentView.backgroundColor = [UIColor whiteColor];
     
-    [contentView addSubview:line];
-    [contentView addSubview:btn];
-    [contentView addSubview:textView];
-    [self.view addSubview:contentView];
-    _commentContentView = contentView;
+    [tcontentView addSubview:line];
+    [tcontentView addSubview:btn];
+    [tcontentView addSubview:textView];
+    [self.view addSubview:tcontentView];
+    _commentContentView = tcontentView;
     
     self.textView.textLengthHandler = ^(JLTextView * _Nonnull view, NSUInteger curryLength) {
         if (curryLength>0) {
@@ -240,109 +642,6 @@
     return YES;
 }
 
-- (WKWebView *)wk{
-    if (!_wk) {
-            NSMutableString *jScript = [[NSMutableString alloc]initWithString:@"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta); var imgs = document.getElementsByTagName('img');for (var i in imgs){imgs[i].style.maxWidth='100%';imgs[i].style.height='auto';}"];
-
-
-
-            WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
-            WKUserContentController *wkUController = [[WKUserContentController alloc] init];
-            [wkUController addUserScript:wkUScript];
-
-            WKWebViewConfiguration *wkWebConfig = [[WKWebViewConfiguration alloc] init];
-            wkWebConfig.userContentController = wkUController;
-        _wk = [[WKWebView alloc] initWithFrame:CGRectMake(10, 0, SCR_W-20, self.wkheight) configuration:wkWebConfig];
-        _wk.UIDelegate = self;
-        _wk.navigationDelegate = self;
-        _wk.scrollView.scrollEnabled = NO;//设置webview不可滚动，让tableview本身滚动即可
-        [_wk loadHTMLString:self.body baseURL:nil];
-
-    }
-    return _wk;
-}
-
-
-#pragma mark  - KVO回调
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
-    
-    //更具内容的高重置webView视图的高度
-//    CGFloat newHeight = self.wk.scrollView.contentSize.height;
-    NSLog(@"999");
-    if (_wk != nil && _wk.scrollView != nil) {
-        [self resetWebViewFrameWithHeight:self.wk.scrollView.contentSize.height];
-
-    }
-}
-// 页面加载完成之后调用
-- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
-    NSLog(@"加载完成");
-        NSString *fileUrl = [[NSBundle mainBundle] pathForResource:@"SOURCEHANSERIFCN-MEDIUM" ofType:@"OTF"];
-        NSData *fileData = [NSData dataWithContentsOfFile:fileUrl];
-        NSString *boldFont = [fileData base64EncodedStringWithOptions:0];
-        NSMutableString *javascript = [NSMutableString string];
-        [javascript appendString:[NSString stringWithFormat:@"\
-                                      var boldcss = '@font-face { font-family: \"%@\"; src: url(data:font/ttf;base64,%@) format(\"truetype\");} *{font-family: \"%@\" !important;}'; \
-                                      var head = document.getElementsByTagName('head')[0], \
-                                      style = document.createElement('style'); \
-                                      style.type = 'text/css'; \
-                                      style.innerHTML = boldcss; \
-                                      head.appendChild(style);",@"SOURCEHANSERIFCN",boldFont,@"SOURCEHANSERIFCN"]];
-    [webView evaluateJavaScript:javascript completionHandler:nil];
-
-    
-    //这个方法也可以计算出webView滚动视图滚动的高度
-    [webView evaluateJavaScript:@"document.body.scrollWidth"completionHandler:^(id _Nullable result,NSError * _Nullable error){
-
-        NSLog(@"scrollWidth高度：%.2f",[result floatValue]);
-        CGFloat ratio =  CGRectGetWidth(webView.frame) /[result floatValue];
-
-    [webView evaluateJavaScript:@"document.body.scrollHeight"completionHandler:^(id _Nullable result,NSError * _Nullable error){
-            NSLog(@"scrollHeight高度：%.2f",[result floatValue]);
-            NSLog(@"scrollHeight计算高度：%.2f",[result floatValue]*ratio);
-            CGFloat newHeight = [result floatValue]*ratio;
-        self.wkheight = newHeight;
-//        self.wk.frame = CGRectMake(0, 0, SCR_W, newHeight);
-        if (self.temp ==0) {
-            //如果webView此时还不是满屏，就需要监听webView的变化  添加监听来动态监听内容视图的滚动区域大小
-            [self.wk.scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
-            
-            [self.myTableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationNone];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                self.myTableView.hidden = NO;
-
-            });
-        }
-        self.temp = 1;
-
-        }];
-
-    }];
-}
-
--(void)resetWebViewFrameWithHeight:(CGFloat)height{
-    /**去掉这个if 是因为KVO 监听的时候有时候网页会由原来的大值变小值 额**/
-//    if (CGRectGetHeight(self.wkWebView.frame) == CGRectGetHeight(self.view.frame)) {
-//        //如果高度已经达到最高，那么就不用设置，只有记录一下
-//        webContentHeight = height;
-//    }else{
-        //如果是新高度，那就重置
-        if (height != webContentHeight) {
-            self.wkheight = height;
-            
-
-//            if(height >= CGRectGetHeight(self.view.frame)){
-//
-//                [self.wk setFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
-//            }else{
-//                [self.wk setFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), height)];
-//            }
-          [self.myTableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationNone];
-            webContentHeight = height;
-        }
-    NSLog(@"10000");
-//    }
-}
 /**无网络页面*/
 - (NoNetWorkView *)nonetView{
     if (!_nonetView) {
@@ -354,188 +653,7 @@
     }
     return _nonetView;
 }
-- (void)initmyTableView{
-    self.myTableView.delegate = self;
-    self.myTableView.dataSource = self;
-    self.myTableView.bounces = NO;
-    self.myTableView.rowHeight = UITableViewAutomaticDimension;
-//    self.myTableView.estimatedRowHeight = 150.0;
 
-    [self.myTableView registerNib:[UINib nibWithNibName:@"FirstLearningCenterDetails1NewsTableViewCell" bundle:nil] forCellReuseIdentifier:@"FirstLearningCenterDetails1NewsTableViewCellID"];
-    [self.myTableView registerNib:[UINib nibWithNibName:@"ThirdLearningCenterDetails1TableViewCell" bundle:nil] forCellReuseIdentifier:@"ThirdLearningCenterDetails1TableViewCellID"];
-    [self.myTableView registerNib:[UINib nibWithNibName:@"ZeropinlunTableViewCell" bundle:nil] forCellReuseIdentifier:@"ZeropinlunTableViewCellID"];
-    [self.myTableView registerNib:[UINib nibWithNibName:@"FivethLearningCenterDetails1TableViewCell" bundle:nil] forCellReuseIdentifier:@"FivethLearningCenterDetails1TableViewCellID"];
-    [self.myTableView registerNib:[UINib nibWithNibName:@"SixLearningCenterDetails1TableViewCell" bundle:nil] forCellReuseIdentifier:@"SixLearningCenterDetails1TableViewCellID"];
-    [self.myTableView registerNib:[UINib nibWithNibName:@"SecondLearningCenterDetails1NewsTableViewCell" bundle:nil] forCellReuseIdentifier:@"SecondLearningCenterDetails1NewsTableViewCellID"];
-    
-    
-    UIView *vi = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0.000001)];
-    self.myTableView.tableHeaderView = vi;
-    
-}
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-        return UITableViewAutomaticDimension;
-
-    
-}
-
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 5;
-}
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-   
-    switch (section) {
-        case 0:
-            return 1;
-            break;
-        case 1:
-            return 1;
-            break;
-        case 2:
-            return 0;
-            break;
-        case 3:
-            return 1;
-            break;
-        case 4:
-            if (self.CommentVoListArray.count==0){
-                return 1;
-                break;
-
-            }else{
-                return  self.CommentVoListArray.count;
-                break;
-
-            }
-        default:
-            break;
-    }
-    return 0;
-}
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 2) {
-        return self.wkheight;
-    }
-    if (section == 4) {
-        return 45;
-    }else{
-        return 0;
-    }
-}
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    if (section == 2) {
-        if (self.body!= nil) {
-            UIView *viwk = [[UIView alloc]initWithFrame:CGRectMake(15, 0, SCR_W-30, self.wkheight)];
-            viwk.backgroundColor = [UIColor whiteColor];
-//            [self.wk mas_updateConstraints:^(MASConstraintMaker *make) {
-//                make.height.mas_equalTo(self.wkheight);
-//                make.width.mas_equalTo(SCR_W-20);
-//
-//            }];
-//           self.wk.frame = CGRectMake(0, 0, SCR_W, self.wkheight);
-            self.wk.frame = CGRectMake(10, 0, SCR_W-20, self.wkheight);
-
-            [viwk addSubview:self.wk];
-//            [self.wk mas_updateConstraints:^(MASConstraintMaker *make) {
-//                make.left.mas_equalTo(10);
-//                make.height.mas_equalTo(self.wkheight);
-//                make.width.mas_equalTo(SCR_W-20);
-//
-//            }];
-            return viwk;
-        }
-    }
-    if (section == 4) {
-        UIView *vi = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCR_W, 35)];
-        vi.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1];
-
-        [tableView addSubview:vi];
-        UIView *vibg = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCR_W, 10)];
-        vibg.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:239/255.0 alpha:1];
-
-        [vi addSubview:vibg];
-
-        //线
-        UIView *linevibg = [[UIView alloc]initWithFrame:CGRectMake(0, 44.5, SCR_W, 0.5)];
-        linevibg.backgroundColor = [UIColor colorWithRed:235/255.0 green:235/255.0 blue:235/255.0 alpha:1];
-
-        [vi addSubview:linevibg];
-        
-        UILabel *lbR = [[UILabel alloc]initWithFrame:CGRectMake(15, 20, 4, 16)];
-        lbR.backgroundColor = [UIColor colorWithRed:196/255.0 green:48/255.0 blue:48/255.0 alpha:1.0];
-        [vi addSubview:lbR];
-
-        UILabel *lb = [[UILabel alloc]initWithFrame:CGRectMake(25, 10, SCR_W, 35)];
-//        lb.backgroundColor = [UIColor colorWithRed:255/255.0 green:255/255.0 blue:255/255.0 alpha:1];
-        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"评论" attributes:@{NSFontAttributeName: [UIFont boldSystemFontOfSize:16],NSForegroundColorAttributeName: [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0]}];
-        lb.attributedText = attributedString;
-        [vi addSubview:lb];
-        return vi;
-    }else{
-        return nil;
-    }
-
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
-
-            FivethLearningCenterDetails1TableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"FivethLearningCenterDetails1TableViewCellID"];
-        if (self.titles != nil) {
-            [cell reloadData:self.titles];
-
-        }
-            return cell;
-  
-
-    }else if(indexPath.section == 1){
-        
-        SixLearningCenterDetails1TableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"SixLearningCenterDetails1TableViewCellID"];
-        if (self.laiyuanstr != nil) {
-            cell.laiyuanLabel.text = self.laiyuanstr;
-
-        }
-        if (self.timestr != nil) {
-            cell.timeLabel.text = [MyTimeInterval IntervalStringToIneedDateString:self.timestr type:@"YYYY-MM-dd"];
-
-        }
-        return cell;
-    }else if (indexPath.section == 2) {
-
-        FirstLearningCenterDetails1NewsTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"FirstLearningCenterDetails1NewsTableViewCellID"];
-
-            return cell;
-  
-
-    }else if (indexPath.section == 3){
-        SecondLearningCenterDetails1NewsTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"SecondLearningCenterDetails1NewsTableViewCellID"];
-        cell.delegate = self;
-        [cell reloadData:self.selectNum];
-        [cell reloadData2:self.dianzanNum];
-        [cell reloadData3:self.dianzanStatus];
-            return cell;
-    }else{
-        if (self.CommentVoListArray.count==0){
-            //评论
-            ZeropinlunTableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"ZeropinlunTableViewCellID"];
-            
-            return cell;
-
-        }else{
-            //评论
-           ThirdLearningCenterDetails1TableViewCell *cell = [self.myTableView dequeueReusableCellWithIdentifier:@"ThirdLearningCenterDetails1TableViewCellID"];
-            cell.delegate = self;
-            cell.indexpath = indexPath;
-            [cell reloadData:self.CommentVoListArray[indexPath.row]];
-            return cell;
-
-        }
-
-    }
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
   
@@ -582,8 +700,9 @@
 }
 /**改变到评论区偏移量*/
 - (IBAction)tiaozhuandaopinlunButton:(id)sender {
-    NSIndexPath * dayOne = [NSIndexPath indexPathForRow:0 inSection:4];
-   [self.myTableView scrollToRowAtIndexPath:dayOne atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//    NSIndexPath * dayOne = [NSIndexPath indexPathForRow:0 inSection:1];
+//   [self.myTableView scrollToRowAtIndexPath:dayOne atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    self.containerScrollView.contentOffset = CGPointMake(0, self.webView.scrollView.contentSize.height) ;
 }
 
 - (IBAction)shareButtonAction:(id)sender {
@@ -600,22 +719,6 @@
     }
 }
 //MARK: - Utility - 多用途(功能)方法
-- (NSString*)H5stringstyle:(NSString*)style font:(NSString*)font body:(NSString*)body{
-    NSString *s1 = @"<!DOCTYPE html>";
-    NSString *s2 = @"<html>";
-    NSString *s3 = @"<head>";
-    NSString *s4 = @"<style>";
-    NSString *s5 = [NSString stringWithFormat:@"@font-face {font-family: %@;src: url('%@');}",style,s2];
-    NSString *s6 = [NSString stringWithFormat:@"* {font-family: '%@' !important;* {font-size: 1rem !important;}}",style];
-    NSString *s7 = @"</style>";
-    NSString *s8 = @"</head>";
-    NSString *s9 = @"</body>";
-    NSString *s10 = @"</html>";
-
-    
-    return [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@%@%@",s1,s2,s3,s4,s5,s6,s7,s8,s9,s10];
-  
-}
 /**评论点赞*/
 - (void)ThirdLearningCenterDetails1TableViewCellButtonActiondelegate:(ThirdLearningCenterDetails1TableViewCell*)cell button:(UIButton*)sender index:(NSIndexPath*)indexpath{
     GetCommentVoListModel *model = self.CommentVoListArray[indexpath.row];
@@ -643,13 +746,13 @@
     
 }
 
-- (void)dealloc{
-    NSLog(@"移除观察者");
-    if (_wk != nil) {
-        [self.wk.scrollView removeObserver:self forKeyPath:@"contentSize"];
-    }
-
-}
+//- (void)dealloc{
+//    NSLog(@"移除观察者");
+////    if (_wk != nil) {
+////        [self.wk.scrollView removeObserver:self forKeyPath:@"contentSize"];
+////    }
+//
+//}
 //MARK: - Network request - 网络请求
 /**新闻详情*/
 - (void)requestmobileIndexinformationDetails{
@@ -683,7 +786,15 @@
                 self.selectNum = [dict2[@"selectNum"] intValue];
             }
         }
+//        [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.height.equalTo(@1);
+//        }];
+//        self.topView.frame = CGRectMake(0, 0, SCR_W, 100);
+
+        [self.myTableView0 reloadData];
         [self.myTableView reloadData];
+        [self.webView loadHTMLString:self.body baseURL:nil];
+
     } failure:^(NSError * _Nonnull error) {
         
     }];
@@ -698,10 +809,21 @@
     [LearningCenterRequest mobileIndexgetCommentVoListrequestDataWithparameters:para success:^(id  _Nonnull result) {
         NSDictionary *dict = [NSDictionary dictionary];
         dict = result;
-        self.CommentVoListArray =  [GetCommentVoListModel mj_objectArrayWithKeyValuesArray:dict[@"data"][@"records"]]; //数组
-        self.pinlunNumberLabel.text = [NSString stringWithFormat:@"%@",dict[@"data"][@"total"] ];
+        if ([dict.allKeys containsObject:@"data"]) {
+            NSDictionary *dict1 = dict[@"data"];
+
+            if ([dict1.allKeys containsObject:@"records"]) {
+                self.CommentVoListArray =  [GetCommentVoListModel mj_objectArrayWithKeyValuesArray:dict[@"data"][@"records"]]; //数组
+                if ([dict1.allKeys containsObject:@"total"]) {
+                    self.pinlunNumberLabel.text = [NSString stringWithFormat:@"%@",dict[@"data"][@"total"] ];
+                }
+            }
+        }
+      
+
 //        self.CommentVoListArray = result;
-        [self.myTableView reloadSections:[NSIndexSet indexSetWithIndex:4] withRowAnimation:UITableViewRowAnimationNone];
+//        [self.myTableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+        [self.myTableView reloadData];
     } failure:^(NSError * _Nonnull error) {
         
     }];
@@ -802,7 +924,7 @@
 - (void)requestsysupmycollectdeleupId:(NSString*)upId Type:(NSString*)type{
       NSMutableDictionary *para = [NSMutableDictionary dictionary];
       //收藏id，有课时id用课时id，没有用课程id
-    para[@"upId"] = upId;
+      para[@"upId"] = upId;
       para[@"type"] = type; //收藏类型1：新闻 2：课时 3：活动 4：劳动圈
     [LearningCenterRequest sysupmycollectdelerequestDataWithparameters:para success:^(id  _Nonnull result) {
 

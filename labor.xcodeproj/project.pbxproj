@@ -266,6 +266,7 @@
 		1F283A0424F7A47B00F99A9B /* PublishTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F283A0224F7A47B00F99A9B /* PublishTaskViewController.xib */; };
 		1F283A0824F7A67800F99A9B /* FirstPublishTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F283A0624F7A67800F99A9B /* FirstPublishTaskTableViewCell.m */; };
 		1F283A0924F7A67800F99A9B /* FirstPublishTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F283A0724F7A67800F99A9B /* FirstPublishTaskTableViewCell.xib */; };
+		1F291E4A2664D5E600B6DF27 /* UIView+HSKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F291E492664D5E500B6DF27 /* UIView+HSKit.m */; };
 		1F31E39D25948FCB00C24954 /* YsyPopHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F31E39825948FCA00C24954 /* YsyPopHelper.m */; };
 		1F31E39E25948FCB00C24954 /* YsyPopAnimationManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F31E39C25948FCA00C24954 /* YsyPopAnimationManage.m */; };
 		1F31E3B4259862EB00C24954 /* HuoDongTiShiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F31E3B3259862EB00C24954 /* HuoDongTiShiView.m */; };
@@ -1121,6 +1122,8 @@
 		1F283A0524F7A67800F99A9B /* FirstPublishTaskTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstPublishTaskTableViewCell.h; sourceTree = "<group>"; };
 		1F283A0624F7A67800F99A9B /* FirstPublishTaskTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstPublishTaskTableViewCell.m; sourceTree = "<group>"; };
 		1F283A0724F7A67800F99A9B /* FirstPublishTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstPublishTaskTableViewCell.xib; sourceTree = "<group>"; };
+		1F291E482664D5E500B6DF27 /* UIView+HSKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HSKit.h"; sourceTree = "<group>"; };
+		1F291E492664D5E500B6DF27 /* UIView+HSKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HSKit.m"; sourceTree = "<group>"; };
 		1F31E39825948FCA00C24954 /* YsyPopHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YsyPopHelper.m; sourceTree = "<group>"; };
 		1F31E39925948FCA00C24954 /* YsyPopAnimationManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YsyPopAnimationManage.h; sourceTree = "<group>"; };
 		1F31E39A25948FCA00C24954 /* YsyPopHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YsyPopHelper.h; sourceTree = "<group>"; };
@@ -5030,6 +5033,8 @@
 		1F59418A24F4BBEC000B4B2D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1F291E482664D5E500B6DF27 /* UIView+HSKit.h */,
+				1F291E492664D5E500B6DF27 /* UIView+HSKit.m */,
 				1F59419024F4BE4B000B4B2D /* FirstLearningCenterDetails1TableViewCell.h */,
 				1F59419124F4BE4B000B4B2D /* FirstLearningCenterDetails1TableViewCell.m */,
 				1F59419224F4BE4B000B4B2D /* FirstLearningCenterDetails1TableViewCell.xib */,
@@ -6753,6 +6758,7 @@
 				1F3C813C25242C8700D5D5AE /* SecondMyTaskAssessmentTeacher3TableViewCell.m in Sources */,
 				1F030B4A255E29BA00B7C66B /* FirstGuanXiZhuanJie2TableViewCell.m in Sources */,
 				1F7B6B332500B5E10041CC5F /* ActivityCompletionViewController.m in Sources */,
+				1F291E4A2664D5E600B6DF27 /* UIView+HSKit.m in Sources */,
 				1F030AB1255D2C4A00B7C66B /* FaBuXinDeViewController.m in Sources */,
 				1F7B6B09250081740041CC5F /* CHTCollectionViewWaterfallLayout.m in Sources */,
 				1FFDB24125679C5800DF3E52 /* WodexindeListModel.m in Sources */,

@@ -13,10 +13,12 @@
 
 
 //正式
-static NSString * const Host = @"http://111.74.0.244:81/";
+//static NSString * const Host = @"http://111.74.0.244:81/";
+static NSString * const Host = @"http://111.74.0.244:9999/";
 
-static NSString * const VideoHost = @"http://47.111.139.74:8089/";
+//static NSString * const VideoHost = @"http://47.111.139.74:8089/";
 
+static NSString * const VideoHost = @"http://111.74.0.244:81/";
 
 
 
